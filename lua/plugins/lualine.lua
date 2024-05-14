@@ -1,7 +1,26 @@
 return {
 	'nvim-lualine/lualine.nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
-	config = function()
-		require("lualine").setup()
-	end,
+	opts = {
+		options = {
+			ignore_focus = { "neo-tree", "undotree" },
+			always_divide_middle = false,
+		},
+		sections = {
+			lualine_a = {'mode'},
+			lualine_b = {'branch', 'diff', 'diagnostics'},
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = {'progress'},
+			lualine_z = {'location'}
+		},
+		winbar = {
+			lualine_a = {'filename'},
+			lualine_b = {},
+			lualine_c = {},
+			lualine_x = {},
+			lualine_y = {'encoding', 'fileformat'},
+			lualine_z = {'filetype'}
+		},
+	},
 }
