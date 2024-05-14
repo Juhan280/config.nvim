@@ -2,12 +2,16 @@ return {
 	"nvimtools/none-ls.nvim",
 	config = function()
 		local null_ls = require("null-ls")
+		local wk = require("which-key")
+
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
 			},
 		})
 
-		vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, {})
+		wk.register({
+			["<leader>fm"] = { vim.lsp.buf.format, "Format Code" },
+		})
 	end,
 }
