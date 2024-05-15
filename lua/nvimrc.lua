@@ -1,6 +1,7 @@
 -- Row number setting
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.wo.fillchars='eob: '
 
 vim.g.mapleader = " "
 

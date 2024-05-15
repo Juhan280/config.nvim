@@ -7,6 +7,7 @@ return {
 			"nvim-lua/plenary.nvim",
 			"BurntSushi/ripgrep",
 		},
+		cmd = "Telescope",
 		keys = {
 			"<leader>ff",
 			"<leader>fr",

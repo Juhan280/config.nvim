@@ -14,7 +14,13 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
 			lualine_c = {},
-			lualine_x = {},
+			lualine_x = {
+				{
+					require("lazy.status").updates,
+					cond = require("lazy.status").has_updates,
+					color = { fg = "#ff9e64" },
+				},
+			},
 			lualine_y = {
 				"encoding",
 				function()
