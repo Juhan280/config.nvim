@@ -13,3 +13,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("nvimrc")
 require("lazy").setup("plugins")
+require("highlights")
