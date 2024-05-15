@@ -9,16 +9,15 @@ return {
 		},
 		cmd = "Telescope",
 		keys = {
-			"<leader>ff",
-			"<leader>fr",
-			"<leader>fg",
-			"<leader>fb",
-			"<leader>fh",
+			{ "<leader>ff", desc = "Find File" },
+			{ "<leader>fr", desc = "Open Recent File" },
+			{ "<leader>fg", desc = "Live Grep" },
+			{ "<leader>fb", desc = "Find Buffer" },
+			{ "<leader>fh", desc = "Find Help" },
 		},
 		config = function()
 			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")
-			local wk = require("which-key")
 
 			telescope.setup({
 				extensions = {
@@ -28,15 +27,11 @@ return {
 				},
 			})
 
-			wk.register({
-				["<leader>f"] = {
-					f = { builtin.find_files, "Find File" },
-					r = { builtin.oldfiles, "Open Recent File" },
-					g = { builtin.live_grep, "Live Grep" },
-					b = { builtin.buffers, "Find Buffer" },
-					h = { builtin.help_tags, "Find Help" },
-				},
-			})
+			vim.keymap.set("n", "<leader>ff", builtin.find_files)
+			vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
+			vim.keymap.set("n", "<leader>fg", builtin.live_grep)
+			vim.keymap.set("n", "<leader>fb", builtin.buffers)
+			vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 
 			telescope.load_extension("ui-select")
 		end,
