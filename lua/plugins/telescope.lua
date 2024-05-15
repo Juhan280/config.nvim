@@ -7,6 +7,13 @@ return {
 			"nvim-lua/plenary.nvim",
 			"BurntSushi/ripgrep",
 		},
+		keys = {
+			"<leader>ff",
+			"<leader>fr",
+			"<leader>fg",
+			"<leader>fb",
+			"<leader>fh",
+		},
 		config = function()
 			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")

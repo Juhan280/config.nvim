@@ -1,5 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
+	keys = { "<leader>fm" },
 	config = function()
 		local null_ls = require("null-ls")
 		local wk = require("which-key")

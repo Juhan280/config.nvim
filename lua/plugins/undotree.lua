@@ -1,5 +1,6 @@
 return {
 	"mbbill/undotree",
+	lazy = false,
 	config = function()
 		vim.g.undotree_SetFocusWhenToggle = true
 		vim.opt.undofile = true
