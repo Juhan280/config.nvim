@@ -14,8 +14,8 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		local ls = require("luasnip")
-		require("luasnip.loaders.from_vscode").lazy_load()
 		local lspkind = require("lspkind")
+		require("luasnip.loaders.from_vscode").lazy_load()
 
 		cmp.setup({
 			snippet = {
