@@ -16,6 +16,7 @@ local opts = {
 	install = { colorscheme = { "night-owl" } },
 	ui = { border = "rounded" },
 	checker = { enabled = true },
+	change_detection = { notify = false },
 }
 
 require("nvimrc")

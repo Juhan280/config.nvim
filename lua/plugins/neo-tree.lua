@@ -8,6 +8,6 @@ return {
 	},
 	opts = {},
 	keys = {
-      { "<C-n>", ":Neotree toggle reveal<CR>", desc = "NeoTree" },
-    },
+		{ "<C-n>", ":Neotree toggle reveal<CR>", desc = "NeoTree" },
+	},
 }

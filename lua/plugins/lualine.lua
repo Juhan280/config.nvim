@@ -21,12 +21,7 @@ return {
 					color = { fg = "#ff9e64" },
 				},
 			},
-			lualine_y = {
-				"encoding",
-				function()
-					return vim.lsp.get_active_clients()[1].name
-				end,
-			},
+			lualine_y = { "encoding" },
 			lualine_z = { "progress", "location" },
 		},
 		winbar = {
