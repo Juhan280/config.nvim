@@ -12,6 +12,7 @@ return {
 		{ "<leader>fr", desc = "Open Recent File" },
 		{ "<leader>fg", desc = "Live Grep" },
 		{ "<leader>fb", desc = "Find Buffer" },
+		{ "<leader>fz", desc = "Find in current buffer" },
 		{ "<leader>fh", desc = "Find Help" },
 	},
 	config = function()
@@ -30,6 +31,7 @@ return {
 		vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep)
 		vim.keymap.set("n", "<leader>fb", builtin.buffers)
+		vim.keymap.set("n", "<leader>fz", builtin.current_buffer_fuzzy_find)
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags)
 
 		telescope.load_extension("ui-select")

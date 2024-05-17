@@ -10,7 +10,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
 	},
-	event = { "InsertEnter", "CmdlineEnter" },
+	event = { "InsertEnter" },
 	config = function()
 		local cmp = require("cmp")
 		local ls = require("luasnip")

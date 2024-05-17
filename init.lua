@@ -15,7 +15,7 @@ local opts = {
 	defaults = { lazy = true },
 	install = { colorscheme = { "night-owl" } },
 	ui = { border = "rounded" },
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
 }
 

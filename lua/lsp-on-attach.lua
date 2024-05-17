@@ -19,4 +19,9 @@ return function(client, bufnr)
 		vim.lsp.buf.code_action()
 	end, opts)
 	vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
+
+	vim.keymap.set("n", "<leader>fm", function()
+		vim.lsp.buf.format({ async = true })
+	end, { desc = "LSP Formatting" })
+
 end
