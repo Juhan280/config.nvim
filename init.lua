@@ -21,4 +21,3 @@ local opts = {
 
 require("nvimrc")
 require("lazy").setup("plugins", opts)
-require("highlights")

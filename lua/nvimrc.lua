@@ -15,3 +15,13 @@ vim.opt.softtabstop = 2
 vim.opt.wrap = false
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
+
+-- Diagnostic Signs
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- Keymaps
+vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })

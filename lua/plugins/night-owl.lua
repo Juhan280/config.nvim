@@ -6,5 +6,7 @@ return {
 	config = function()
 		require("night-owl").setup({ italics = false })
 		vim.cmd.colorscheme("night-owl")
+
+		vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#c792ea" })
 	end,
 }
