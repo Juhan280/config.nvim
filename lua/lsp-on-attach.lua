@@ -18,7 +18,7 @@ return function(client, bufnr)
 		vim.api.nvim_command("Lazy load telescope.nvim")
 		vim.lsp.buf.code_action()
 	end, opts)
-	vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, opts)
+	vim.keymap.set("n", "<leader>dl", ":TroubleToggle document_diagnostics<CR>", {})
 
 	vim.keymap.set("n", "<leader>fm", function()
 		vim.lsp.buf.format({ async = true })
