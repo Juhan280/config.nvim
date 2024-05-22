@@ -20,6 +20,14 @@ return {
 					cond = require("lazy.status").has_updates,
 					color = { fg = "#ff9e64" },
 				},
+				{
+					function()
+						return vim.lsp.util.get_progress_messages()[1].title
+					end,
+					cond = function()
+						return vim.lsp.util.get_progress_messages()[1] ~= nil
+					end,
+				},
 			},
 			lualine_y = { "encoding" },
 			lualine_z = { "progress", "location" },

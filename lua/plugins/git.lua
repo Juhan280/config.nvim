@@ -2,7 +2,7 @@ return {
 	{ "tpope/vim-fugitive", cmd = "Git" },
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "BufEnter",
+		event = "VeryLazy",
 		opts = { current_line_blame = true },
 	},
 }
