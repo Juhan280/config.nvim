@@ -36,7 +36,11 @@ return {
 
 
 		-- servers that are not installed by mason but exists in the PATH
-		local servers = { "lua_ls", "gleam" }
+		local servers = {
+			"clangd",
+			"gleam",
+			"lua_ls",
+		}
 		for _, server in ipairs(servers) do
 			if set_servers[server] ~= nil then goto continue end
 
