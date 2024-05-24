@@ -34,13 +34,28 @@ return {
 			end,
 		})
 
-
 		-- servers that are not installed by mason but exists in the PATH
 		local servers = {
 			"clangd",
 			"gleam",
 			"lua_ls",
+			-- "rust_analyzer",
 		}
+
+		lspconfig.rust_analyzer.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				['rust-analyzer'] = {
+					diagnostics = {
+						experimental = {
+							enable = true,
+						}
+					}
+				}
+			},
+		})
+
 		for _, server in ipairs(servers) do
 			if set_servers[server] ~= nil then goto continue end
 
