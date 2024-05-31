@@ -1,3 +1,7 @@
+-- mapleader is needed to be defined before anytging elsw
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
@@ -19,5 +23,5 @@ local opts = {
 	change_detection = { notify = false },
 }
 
-require("nvimrc")
 require("lazy").setup("plugins", opts)
+require("nvimrc")
