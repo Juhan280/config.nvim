@@ -30,11 +30,11 @@ return function(client, bufnr)
 		vim.api.nvim_command("Lazy load telescope.nvim")
 		vim.lsp.buf.code_action()
 	end, gen_opts(bufnr, "LSP Code Action"))
-	vim.keymap.set("n", "<leader>dl", ":TroubleToggle document_diagnostics<CR>", gen_opts(bufnr, "Document diagnostic"))
+	vim.keymap.set("n", "<leader>dl", ":Trouble document_diagnostics<CR>", gen_opts(bufnr, "Document diagnostic"))
 	vim.keymap.set(
 		"n",
 		"<leader>dwl",
-		":TroubleToggle workspace_diagnostics<CR>",
+		":Trouble workspace_diagnostics<CR>",
 		gen_opts(bufnr, "Workspace diagnostic")
 	)
 
