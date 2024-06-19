@@ -18,25 +18,15 @@ return function(client, bufnr)
 	vim.keymap.set("n", "<leader>lf", function()
 		vim.diagnostic.open_float({ border = "rounded" })
 	end, gen_opts(bufnr, "Floating diagnostics"))
+	vim.keymap.set("n", "<leader>ls", ":Telescope lsp_document_symbols<CR>", gen_opts(bufnr, "Show document symbols"))
 	vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, gen_opts(bufnr, "Go to definition"))
-	vim.keymap.set(
-		"n",
-		"<leader>gtd",
-		":TroubleToggle lsp_type_definitions<CR>",
-		gen_opts(bufnr, "Go to type definition")
-	)
-	vim.keymap.set("n", "<leader>gr", ":TroubleToggle lsp_references<CR>", gen_opts(bufnr, "Show references"))
+	vim.keymap.set("n", "<leader>gtd", ":Telescope lsp_type_definitions<CR>", gen_opts(bufnr, "Go to type definition"))
+	vim.keymap.set("n", "<leader>gr", ":Telescope lsp_references<CR>", gen_opts(bufnr, "Show references"))
 	vim.keymap.set("n", "<leader>ca", function()
-		vim.api.nvim_command("Lazy load telescope.nvim")
+		require("telescope")
 		vim.lsp.buf.code_action()
 	end, gen_opts(bufnr, "LSP Code Action"))
-	vim.keymap.set("n", "<leader>dl", ":Trouble document_diagnostics<CR>", gen_opts(bufnr, "Document diagnostic"))
-	vim.keymap.set(
-		"n",
-		"<leader>dwl",
-		":Trouble workspace_diagnostics<CR>",
-		gen_opts(bufnr, "Workspace diagnostic")
-	)
+	vim.keymap.set("n", "<leader>dl", ":Telescope diagnostics<CR>", gen_opts(bufnr, "Document diagnostic"))
 
 	vim.keymap.set("n", "<leader>fm", function()
 		vim.lsp.buf.format({ async = true })
