@@ -8,6 +8,8 @@ return {
 		"neovim/nvim-lspconfig",
 		{ "nvimtools/none-ls.nvim", config = function() require("null-ls-config") end },
 		"Issafalcon/lsp-overloads.nvim",
+
+		"folke/neoconf.nvim",
 	},
 	lazy = false,
 	config = function()
@@ -15,11 +17,13 @@ return {
 		local masonlsp = require("mason-lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+		require("neoconf").setup()
+
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "rounded",
 		})
 
-		masonlsp.setup({})
+		masonlsp.setup()
 
 		local set_servers = {}
 
