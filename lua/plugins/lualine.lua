@@ -20,30 +20,9 @@ return {
 					cond = require("lazy.status").has_updates,
 					color = { fg = "#ff9e64" },
 				},
-				-- handled by 'mini.notify'
-				-- {
-				-- 	function()
-				-- 		local lsp_progress = vim.lsp.util.get_progress_messages()[1]
-				--
-				-- 		if lsp_progress.percentage == nil then
-				-- 			return "(LSP) " .. lsp_progress.title
-				-- 		else
-				-- 			return "(LSP) "
-				-- 					.. lsp_progress.title
-				-- 					.. " ("
-				-- 					.. lsp_progress.percentage
-				-- 					.. "/100): "
-				-- 					.. lsp_progress.message
-				-- 		end
-				-- 	end,
-				-- 	cond = function()
-				-- 		return vim.lsp.util.get_progress_messages()[1] ~= nil
-				-- 	end,
-				-- 	color = { bg = "#8E5249" },
-				-- },
 			},
 			lualine_y = { "progress" },
-			lualine_z = {  "location" },
+			lualine_z = { "location" },
 		},
 		winbar = {
 			lualine_a = { "filename" },

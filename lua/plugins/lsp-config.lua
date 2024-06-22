@@ -3,7 +3,6 @@ local on_attach = require("lsp-on-attach")
 return {
 	"williamboman/mason-lspconfig.nvim",
 	dependencies = {
-		{ "folke/neodev.nvim",       opts = {} },
 		{ "williamboman/mason.nvim", opts = {} },
 		"neovim/nvim-lspconfig",
 		{ "nvimtools/none-ls.nvim", config = function() require("null-ls-config") end },

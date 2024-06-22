@@ -27,3 +27,11 @@ vim.opt.whichwrap:append("<>[]hl")
 
 -- Keymaps
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- disable treesitter highlight for gitcommit file types
+vim.api.nvim_create_autocmd("FileType", {
+	once = true,
+	pattern = "gitcommit",
+	command = "setlocal tabstop=2 | TSBufDisable highlight"
+})

@@ -1,4 +1,4 @@
--- mapleader is needed to be defined before anytging elsw
+-- mapleader is needed to be defined before anything else
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

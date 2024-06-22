@@ -9,6 +9,18 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
+
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = {
+				library = {
+					{ path = "luvit-meta/library", words = { "vim%.uv" } },
+				},
+			},
+		},
+		"Bilal2453/luvit-meta",
+
 	},
 	event = { "InsertEnter" },
 	config = function()

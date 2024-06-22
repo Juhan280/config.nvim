@@ -12,7 +12,8 @@ return function(client, bufnr)
 		require("lsp-overloads").setup(client, {})
 	end
 
-	vim.keymap.set("n", "K", vim.lsp.buf.hover, gen_opts(bufnr, "Show Documentation"))
+	-- "K" is mapped to lsp hover in v0.10 by default
+	-- vim.keymap.set("n", "K", vim.lsp.buf.hover, gen_opts(bufnr, "Show Documentation"))
 	vim.keymap.set("n", "<A-k>", vim.lsp.buf.signature_help, gen_opts(bufnr, "Signature help"))
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, gen_opts(bufnr, "LSP Rename"))
 	vim.keymap.set("n", "<leader>lf", function()
