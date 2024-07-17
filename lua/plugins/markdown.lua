@@ -2,10 +2,12 @@ return { --- @type LazySpec
 	"MeanderingProgrammer/markdown.nvim",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter", -- Mandatory
-		"nvim-tree/nvim-web-devicons", -- Optional but recommended
+		"nvim-tree/nvim-web-devicons",   -- Optional but recommended
 	},
 	ft = "markdown",
-	opts = {
-		latex_enabled = true
+	opts = { ---@type render.md.UserConfig
+		code = {
+			left_pad = 1,
+		},
 	},
 }
