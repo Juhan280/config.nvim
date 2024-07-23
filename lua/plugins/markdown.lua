@@ -6,8 +6,5 @@ return { --- @type LazySpec
 	},
 	ft = "markdown",
 	opts = { ---@type render.md.UserConfig
-		code = {
-			left_pad = 1,
-		},
 	},
 }
