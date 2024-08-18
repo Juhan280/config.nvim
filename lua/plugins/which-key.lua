@@ -1,4 +1,4 @@
-return {
+local plugin = {
 	"folke/which-key.nvim",
 	keys = {
 		"<leader>",
@@ -17,6 +17,12 @@ return {
 		vim.o.timeoutlen = 300
 	end,
 	opts = {
-		plugins = { registers = false },
+		plugins = { registers = not vim.os.isAndroid() },
 	},
 }
+
+if not vim.os.isAndroid() then
+	table.insert(plugin.keys, '"')
+end
+
+return plugin

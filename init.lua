@@ -2,6 +2,19 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.os = {}
+local f = io.popen("uname -o", "r")
+if f then
+	local output = f:read("*a")
+	f:close()
+	if output then
+		vim.os.name = output:sub(1, -2)
+	end
+end
+function vim.os.isAndroid()
+	return vim.os.name == "Android"
+end
+
 -- Install folke/lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
