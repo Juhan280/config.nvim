@@ -33,7 +33,7 @@ vim.opt.rtp:prepend(lazypath)
 ---@type LazyConfig
 local opts = {
 	defaults = { lazy = true },
-	install = { colorscheme = { "night-owl" } },
+	install = { colorscheme = { "tokyonight" } },
 	ui = { border = "rounded" },
 	checker = { enabled = true, notify = false },
 	change_detection = { notify = false },
