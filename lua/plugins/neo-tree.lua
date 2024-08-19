@@ -6,10 +6,10 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
-	opts = {},
-	keys = {
-		{ "<C-n>",     ":Neotree toggle reveal<CR>", desc = "Neotree" },
-		{ "<leader>e", ":Neotree focus reveal<CR>",  desc = "Neotree focud" },
-	},
 	cmd = "Neotree",
+	keys = {
+		{ "<C-n>",     ":Neotree position=right toggle reveal<CR>", desc = "Neotree toggle" },
+		{ "<leader>e", ":Neotree position=right focus reveal<CR>",  desc = "Neotree focud" },
+	},
+	opts = {},
 }

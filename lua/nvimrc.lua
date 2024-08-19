@@ -31,7 +31,17 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- disable treesitter highlight for gitcommit file types
 vim.api.nvim_create_autocmd("FileType", {
+	desc = "disable treesitter highlight for gitcommit file types",
 	once = true,
 	pattern = "gitcommit",
 	command = "setlocal tabstop=2 | TSBufDisable highlight"
+})
+
+-- highlight when yanking (copying) text
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("highlight-on-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end
 })

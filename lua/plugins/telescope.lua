@@ -9,7 +9,7 @@ return {
 	cmd = "Telescope",
 	keys = {
 		{ "<leader>ff", desc = "Find File" },
-		{ "<leader>fr", desc = "Open Recent File" },
+		{ "<leader>fr", desc = "Find Recent Files" },
 		{ "<leader>fg", desc = "Live Grep" },
 		{ "<leader>fb", desc = "Find Buffer" },
 		{ "<leader>fz", desc = "Find in current buffer" },
