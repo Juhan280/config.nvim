@@ -2,7 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.os = {}
+-- Allow differentiating between android and other os because
+-- termux doesn't support some features
+vim.os = { name = '' }
 local f = io.popen("uname -o", "r")
 if f then
 	local output = f:read("*a")

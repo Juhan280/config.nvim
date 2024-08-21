@@ -7,7 +7,8 @@ return {
 			style = "night",
 			transparent = false,
 			styles = {
-				comments = { italic = false },
+				comments = { italic = not vim.os.isAndroid() },
+				keywords = { italic = not vim.os.isAndroid() },
 			},
 		})
 		vim.cmd.colorscheme("tokyonight")
