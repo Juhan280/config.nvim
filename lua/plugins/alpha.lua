@@ -28,6 +28,7 @@ return {
 			dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
 			dashboard.button("r", "󰈢  > Recent", ":Telescope oldfiles<CR>"),
 			dashboard.button("h", "󰋖  > Help", ":Telescope help_tags<CR>"),
+			dashboard.button("l", "  > Open Lazy", ":Lazy<CR>"),
 			dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
 			dashboard.button("q", "󰈆  > Quit NVIM", ":qa<CR>"),
 		}
