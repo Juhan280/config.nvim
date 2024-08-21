@@ -1,3 +1,12 @@
+local keybinds = {
+	{ "<leader>ff", "find_files",                desc = "Find files" },
+	{ "<leader>fr", "oldfiles",                  desc = "Find recent files" },
+	{ "<leader>fg", "live_grep",                 desc = "Live grep" },
+	{ "<leader>fb", "buffers",                   desc = "Find buffer" },
+	{ "<leader>fz", "current_buffer_fuzzy_find", desc = "Find in files" },
+	{ "<leader>fh", "help_tags",                 desc = "Find help" },
+}
+
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
@@ -7,14 +16,7 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	cmd = "Telescope",
-	keys = {
-		{ "<leader>ff", desc = "Find File" },
-		{ "<leader>fr", desc = "Find Recent Files" },
-		{ "<leader>fg", desc = "Live Grep" },
-		{ "<leader>fb", desc = "Find Buffer" },
-		{ "<leader>fz", desc = "Find in current buffer" },
-		{ "<leader>fh", desc = "Find Help" },
-	},
+	keys = keybinds,
 	config = function()
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
@@ -27,12 +29,9 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<leader>ff", builtin.find_files)
-		vim.keymap.set("n", "<leader>fr", builtin.oldfiles)
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep)
-		vim.keymap.set("n", "<leader>fb", builtin.buffers)
-		vim.keymap.set("n", "<leader>fz", builtin.current_buffer_fuzzy_find)
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+		for _, keybind in ipairs(keybinds) do
+			vim.keymap.set("n", keybind[1], builtin[keybind[2]], { desc = keybind.desc })
+		end
 
 		telescope.load_extension("ui-select")
 	end,
