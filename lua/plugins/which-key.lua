@@ -1,16 +1,6 @@
-local plugin = {
+return {
 	"folke/which-key.nvim",
-	keys = {
-		"<leader>",
-		"<c-r>",
-		"<c-w>",
-		-- '"',
-		"'",
-		"`",
-		"c",
-		"v",
-		"g",
-	},
+	event = "VeryLazy",
 	cmd = "WhichKey",
 	init = function()
 		vim.o.timeout = true
@@ -20,9 +10,3 @@ local plugin = {
 		plugins = { registers = not vim.os.isAndroid() },
 	},
 }
-
-if not vim.os.isAndroid() then
-	table.insert(plugin.keys, '"')
-end
-
-return plugin
