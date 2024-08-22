@@ -40,11 +40,33 @@ return { --- @type LazySpec
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<A-up>"] = cmp.mapping.scroll_docs(-4),
-				["<A-down>"] = cmp.mapping.scroll_docs(4),
+				-- Select the [n]ext item
+				['<C-n>'] = cmp.mapping.select_next_item(),
+				-- Select the [p]revious item
+				['<C-p>'] = cmp.mapping.select_prev_item(),
+
+				-- Scroll the documentation window [b]ack / [f]orward
+				['<C-b>'] = cmp.mapping.scroll_docs(-4),
+				['<C-f>'] = cmp.mapping.scroll_docs(4),
+
+				-- Manually trigger a completion from nvim-cmp.
 				["<C-Space>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.abort(),
 				["<Tab>"] = cmp.mapping.confirm({ select = true }),
+
+				-- <c-l> will move you to the right of each of the expansion locations.
+				-- <c-h> is similar, except moving you backwards.
+				['<C-l>'] = cmp.mapping(function()
+					if ls.expand_or_locally_jumpable() then
+						ls.expand_or_jump()
+					end
+				end, { 'i', 's' }),
+				['<C-h>'] = cmp.mapping(function()
+					if ls.locally_jumpable(-1) then
+						ls.jump(-1)
+					end
+				end, { 'i', 's' }),
+
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
@@ -80,17 +102,5 @@ return { --- @type LazySpec
 			history = false,
 			updateevents = "TextChanged,TextChangedI",
 		})
-
-		vim.keymap.set({ "i", "s" }, "<c-k>", function()
-			if ls.expand_or_jumpable() then
-				ls.expand_or_jump()
-			end
-		end, { silent = true })
-
-		vim.keymap.set({ "i", "s" }, "<c-j>", function()
-			if ls.jumpable(-1) then
-				ls.jump(-1)
-			end
-		end, { silent = true })
 	end,
 }
