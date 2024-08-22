@@ -1,6 +1,9 @@
 -- mapleader is needed to be defined before anything else
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+-- Set an empty winbar by default. So when the real winbar is loaded, 
+-- it doesn't shift the entire buffer by one line
+vim.opt.winbar = " "
 
 -- Allow differentiating between android and other os because
 -- termux doesn't support some features

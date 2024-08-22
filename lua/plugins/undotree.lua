@@ -7,6 +7,6 @@ return {
 
 		vim.keymap.set("n", "<leader>u", function()
 			vim.cmd.UndotreeToggle()
-		end, { desc = "Undo tree" })
+		end, { desc = "Undotree" })
 	end,
 }
