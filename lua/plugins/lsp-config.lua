@@ -1,8 +1,8 @@
 return {
-	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "williamboman/mason.nvim", opts = {} },
-		"neovim/nvim-lspconfig",
+		"williamboman/mason-lspconfig.nvim",
 		{ "nvimtools/none-ls.nvim",  config = function() require("null-ls-config") end },
 		"Issafalcon/lsp-overloads.nvim",
 
@@ -39,32 +39,28 @@ return {
 
 		-- servers that are not installed by mason but exists in the PATH
 		local servers = {
-			"clangd",
-			"gleam",
-			"lua_ls",
-			-- "rust_analyzer",
-		}
-
-		lspconfig.rust_analyzer.setup({
-			capabilities = capabilities,
-			settings = {
-				['rust-analyzer'] = {
-					diagnostics = {
-						experimental = {
-							enable = true,
+			clangd = {},
+			gleam = {},
+			lua_ls = {},
+			rust_analyzer = {
+				settings = {
+					['rust-analyzer'] = {
+						diagnostics = {
+							experimental = {
+								enable = true,
+							}
 						}
 					}
-				}
+				},
 			},
-		})
+		}
 
-		for _, server in ipairs(servers) do
-			if set_servers[server] ~= nil then goto continue end
+		for server_name, server in pairs(servers) do
+			if set_servers[server_name] ~= nil then goto continue end
 
-			lspconfig[server].setup({
-				capabilities = capabilities,
-			})
-			set_servers[server] = 1
+			server.capabilities = vim.tbl_deep_extend('force', capabilities, server.capabilities or {})
+			lspconfig[server_name].setup(server)
+			set_servers[server_name] = 1
 
 			::continue::
 		end
