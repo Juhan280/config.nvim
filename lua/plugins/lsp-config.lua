@@ -1,11 +1,9 @@
-local on_attach = require("lsp-on-attach")
-
 return {
 	"williamboman/mason-lspconfig.nvim",
 	dependencies = {
 		{ "williamboman/mason.nvim", opts = {} },
 		"neovim/nvim-lspconfig",
-		{ "nvimtools/none-ls.nvim", config = function() require("null-ls-config") end },
+		{ "nvimtools/none-ls.nvim",  config = function() require("null-ls-config") end },
 		"Issafalcon/lsp-overloads.nvim",
 
 		"folke/neoconf.nvim",
@@ -14,8 +12,10 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local masonlsp = require("mason-lspconfig")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+		require("lsp-on-attach")
 		require("neoconf").setup()
 
 		require('lspconfig.ui.windows').default_options.border = "rounded"
@@ -30,7 +30,6 @@ return {
 		masonlsp.setup_handlers({
 			function(server)
 				lspconfig[server].setup({
-					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 
@@ -47,7 +46,6 @@ return {
 		}
 
 		lspconfig.rust_analyzer.setup({
-			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = {
 				['rust-analyzer'] = {
@@ -64,7 +62,6 @@ return {
 			if set_servers[server] ~= nil then goto continue end
 
 			lspconfig[server].setup({
-				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 			set_servers[server] = 1
