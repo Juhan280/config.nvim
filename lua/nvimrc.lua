@@ -1,6 +1,7 @@
 -- Row number setting
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 vim.opt.fillchars = "eob: "
 
 -- Tab setting
@@ -27,11 +28,11 @@ vim.opt.whichwrap:append("<>[]hl")
 
 -- Keymaps
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = 'Exit terminal mode' })
 
 -- disable treesitter highlight for gitcommit file types
 vim.api.nvim_create_autocmd("FileType", {
-	desc = "disable treesitter highlight for gitcommit file types",
+	desc = "Disable treesitter highlight for gitcommit file types",
 	once = true,
 	pattern = "gitcommit",
 	command = "setlocal tabstop=2 | TSBufDisable highlight"
