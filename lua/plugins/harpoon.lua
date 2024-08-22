@@ -1,7 +1,7 @@
 local keybinds = {
 	{ "<leader>a",  function(h) h:list():add() end,     desc = "Harpoon add file" },
 	{
-		"<C-e>",
+		"<leader>hg",
 		function(h) h.ui:toggle_quick_menu(h:list()) end,
 		desc = "Harpoon quick menu"
 	},
