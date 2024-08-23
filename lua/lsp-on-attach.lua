@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		--- Guard against servers without the signatureHelper capability
 		if client and client.server_capabilities.signatureHelpProvider then
+			---@diagnostic disable-next-line: missing-fields
 			require("lsp-overloads").setup(client, {})
 		end
 
@@ -23,19 +24,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		nmap("gd", vim.lsp.buf.definition, "Go to Definition")
 		nmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
 		nmap("<leader>gtd", ":Telescope lsp_type_definitions<CR>", "Go to Type Definition")
-		nmap("gr", ":Telescope lsp_references<CR>", "Show references")
+		nmap("<leader>gr", ":Telescope lsp_references<CR>", "Show references")
 		nmap("<leader>ls", ":Telescope lsp_document_symbols<CR>", "Show Document Symbols")
 		nmap("<leader>ld", ":Telescope diagnostics<CR>", "Document Diagnostic")
 		nmap("<leader>lf", function()
 			vim.diagnostic.open_float({ border = "rounded" })
 		end, "Floating diagnostics")
-		nmap("<leader>ca", function()
+		nmap("<leader>lc", function()
 			require("telescope")
 			vim.lsp.buf.code_action()
 		end, "Code Action")
 
 		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-			nmap('<leader>th', function()
+			nmap('<leader>li', function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
 			end, 'Toggle Inlay Hints')
 		end
