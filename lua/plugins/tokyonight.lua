@@ -6,12 +6,12 @@ return {
 		---@diagnostic disable-next-line: missing-fields
 		require("tokyonight").setup({
 			style = "night",
-			transparent = not vim.os.isAndroid(),
+			transparent = true,
 			styles = {
 				comments = { italic = not vim.os.isAndroid() },
 				keywords = { italic = not vim.os.isAndroid() },
-				sidebars = vim.os.isAndroid() and "dark" or "transparent",
-				floats = vim.os.isAndroid() and "dark" or "transparent",
+				sidebars = "transparent",
+				floats = "transparent",
 			},
 		})
 		vim.cmd.colorscheme("tokyonight")
