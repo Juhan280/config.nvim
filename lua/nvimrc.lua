@@ -30,12 +30,12 @@ vim.opt.whichwrap:append("<>[]hl")
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = 'Exit terminal mode' })
 
--- disable treesitter highlight for gitcommit file types
+-- For some reason tabstop is set back to 8 in gitcommit filetype
 vim.api.nvim_create_autocmd("FileType", {
-	desc = "Disable treesitter highlight for gitcommit file types",
+	desc = "Set tabstop to 2",
 	once = true,
 	pattern = "gitcommit",
-	command = "setlocal tabstop=2 | TSBufDisable highlight"
+	command = "setlocal tabstop=2"
 })
 
 -- highlight when yanking (copying) text
