@@ -29,8 +29,8 @@ return {
 			dashboard.button("r", "󰈢  > Recent", ":Telescope oldfiles<CR>"),
 			dashboard.button("h", "󰋖  > Help", ":Telescope help_tags<CR>"),
 			dashboard.button("l", "  > Open Lazy", ":Lazy<CR>"),
-			dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h |  pwd<CR>"),
-			dashboard.button("q", "󰈆  > Quit NVIM", ":qa<CR>"),
+			dashboard.button("c", "  > Config", ":e $MYVIMRC | :cd %:p:h |  pwd<CR>"),
+			dashboard.button("q", "󰈆  > Quit", ":qa<CR>"),
 		}
 
 		dashboard.section.footer.val = fortune()
