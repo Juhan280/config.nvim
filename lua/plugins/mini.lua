@@ -5,7 +5,11 @@ return {
 	config = function()
 		require("mini.ai").setup()
 		require("mini.pairs").setup()
-		require('mini.operators').setup()
+		require('mini.operators').setup({
+			exchange = {
+				prefix = '<leader>x',
+			}
+		})
 		require('mini.surround').setup({
 			mappings = {
 				add = 'ys',
