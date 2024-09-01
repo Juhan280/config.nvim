@@ -1,4 +1,5 @@
 local keybinds = {
+	{ "<leader>f",  desc = "Telescope" },
 	{ "<leader>ff", "find_files",                desc = "Find files" },
 	{ "<leader>fr", "oldfiles",                  desc = "Find recent files" },
 	{ "<leader>fg", "live_grep",                 desc = "Live grep" },
@@ -30,7 +31,10 @@ return {
 		})
 
 		for _, keybind in ipairs(keybinds) do
-			vim.keymap.set("n", keybind[1], builtin[keybind[2]], { desc = keybind.desc })
+			local rhs = builtin[keybind[2]]
+			if rhs ~= nil then
+				vim.keymap.set("n", keybind[1], rhs, { desc = keybind.desc })
+			end
 		end
 
 		telescope.load_extension("ui-select")

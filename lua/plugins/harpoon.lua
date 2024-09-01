@@ -1,15 +1,16 @@
 local keybinds = {
-	{ "<leader>a",  function(h) h:list():add() end,     desc = "Harpoon add file" },
+	{ "<leader>a", function() require("harpoon"):list():add() end, desc = "Harpoon add file" },
+	{ "<leader>h", desc = "Harpoon" },
 	{
 		"<leader>hg",
-		function(h) h.ui:toggle_quick_menu(h:list()) end,
+		function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
 		desc = "Harpoon quick menu"
 	},
 
-	{ "<leader>hh", function(h) h:list():select(1) end, desc = "buffer h" },
-	{ "<leader>hj", function(h) h:list():select(2) end, desc = "buffer j" },
-	{ "<leader>hk", function(h) h:list():select(3) end, desc = "buffer k" },
-	{ "<leader>hl", function(h) h:list():select(4) end, desc = "buffer l" },
+	{ "<leader>hh", function() require("harpoon"):list():select(1) end, desc = "buffer h" },
+	{ "<leader>hj", function() require("harpoon"):list():select(2) end, desc = "buffer j" },
+	{ "<leader>hk", function() require("harpoon"):list():select(3) end, desc = "buffer k" },
+	{ "<leader>hl", function() require("harpoon"):list():select(4) end, desc = "buffer l" },
 }
 
 return {
@@ -22,9 +23,9 @@ return {
 		harpoon:setup()
 
 		for _, keybind in ipairs(keybinds) do
-			vim.keymap.set("n", keybind[1], function()
-				keybind[2](harpoon)
-			end, { desc = keybind.desc })
+			if keybind[2] ~= nil then
+				vim.keymap.set("n", keybind[1], keybind[2], { desc = keybind.desc })
+			end
 		end
 	end
 }
