@@ -28,12 +28,16 @@ return {
 		local set_servers = {}
 
 		masonlsp.setup_handlers({
-			function(server)
-				lspconfig[server].setup({
+			function(server_name)
+				-- https://github.com/neovim/nvim-lspconfig/pull/3232
+				if server_name == "tsserver" then
+					server_name = "ts_ls"
+				end
+				lspconfig[server_name].setup({
 					capabilities = capabilities,
 				})
 
-				set_servers[server] = 1
+				set_servers[server_name] = 1
 			end,
 		})
 
