@@ -15,6 +15,10 @@ vim.opt.wrap = false
 vim.opt.scrolloff = 3
 vim.opt.sidescrolloff = 3
 
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Diagnostic Signs
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
