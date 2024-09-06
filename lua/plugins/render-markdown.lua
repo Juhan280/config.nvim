@@ -2,8 +2,8 @@ return { --- @type LazySpec
 	"MeanderingProgrammer/render-markdown.nvim",
 	version = "*",
 	dependencies = {
-		"nvim-treesitter/nvim-treesitter", -- Mandatory
-		"nvim-tree/nvim-web-devicons",   -- Optional but recommended
+		"nvim-treesitter/nvim-treesitter",
+		"echasnovski/mini.icons",
 	},
 	cmd = "RenderMarkdown",
 	ft = { "markdown", "gitcommit" },
