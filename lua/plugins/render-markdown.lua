@@ -6,9 +6,9 @@ return { --- @type LazySpec
 		"echasnovski/mini.icons",
 	},
 	cmd = "RenderMarkdown",
-	ft = { "markdown", "gitcommit" },
+	ft = { "markdown", "gitcommit", "NeogitCommitMessage" },
 	opts = { ---@type render.md.UserConfig
-		file_types = { "markdown", "gitcommit" },
+		file_types = { "markdown", "gitcommit", "NeogitCommitMessage" },
 		preset = "lazy",
 	},
 }
