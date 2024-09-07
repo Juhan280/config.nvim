@@ -1,3 +1,10 @@
+local function get_git_button(dashboard)
+	local gitpath = vim.uv.cwd() .. "/.git"
+	if (vim.uv or vim.loop).fs_stat(gitpath) then
+		return dashboard.button("g", "󰊢  > Git", ":Neogit<CR>")
+	end
+end
+
 return {
 	"goolord/alpha-nvim",
 	dependencies = {
@@ -27,6 +34,7 @@ return {
 			dashboard.button("e", "  > New file", ":ene<CR>"),
 			dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
 			dashboard.button("r", "󰈢  > Recent", ":Telescope oldfiles<CR>"),
+			get_git_button(dashboard),
 			dashboard.button("h", "󰋖  > Help", ":Telescope help_tags<CR>"),
 			dashboard.button("l", "  > Open Lazy", ":Lazy<CR>"),
 			dashboard.button("c", "  > Config", ":e $MYVIMRC | :cd %:p:h |  pwd<CR>"),
