@@ -5,15 +5,15 @@ vim.opt.cursorline = true
 vim.opt.fillchars = "eob: "
 
 -- Tab setting
-vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.shiftwidth = 0 -- when set to zero, it uses 'tabstop' value
+vim.opt.softtabstop = -1 -- when it is negative, it follows 'shiftwidth'
 vim.opt.expandtab = false
-vim.opt.softtabstop = 2
 
--- wrap and scrolling
+-- wraping and scrolling
 vim.opt.wrap = false
-vim.opt.scrolloff = 3
-vim.opt.sidescrolloff = 3
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 5
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
