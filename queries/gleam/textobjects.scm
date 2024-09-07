@@ -1,8 +1,16 @@
 ;; This is modified from queries/rust/textobjects.scm
 
 ; functions
+(function) @function.outer
+
 (function
-	body: (function_body) @function.inner) @function.outer
+	"{"
+	.
+	(_) @_start @_end
+	(_)? @_end
+	.
+	"}"
+	(#make-range! "function.inner" @_start @_end))
 
 ; quantifies as class(es)
 (type_definition) @class.outer
@@ -15,9 +23,6 @@
 ; blocks
 (block) @block.outer
 ; TODO add @block.inner
-
-; (unsafe_block
-;   (_)? @block.inner) @block.outer
 
 ; calls
 (function_call) @call.outer
