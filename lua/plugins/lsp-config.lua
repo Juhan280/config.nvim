@@ -1,4 +1,4 @@
-return {
+return { ---@type LazySpec
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "williamboman/mason.nvim", opts = {} },
@@ -8,7 +8,7 @@ return {
 
 		"folke/neoconf.nvim",
 	},
-	lazy = false,
+	event = "VeryLazy",
 	config = function()
 		local lspconfig = require("lspconfig")
 		local masonlsp = require("mason-lspconfig")

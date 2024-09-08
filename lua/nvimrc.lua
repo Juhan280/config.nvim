@@ -19,6 +19,9 @@ vim.opt.sidescrolloff = 5
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- Allow insensitive tab completion in command mode
+vim.opt.ignorecase = true
+
 -- Diagnostic Signs
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
