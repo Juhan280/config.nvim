@@ -29,10 +29,6 @@ return { ---@type LazySpec
 
 		masonlsp.setup_handlers({
 			function(server_name)
-				-- https://github.com/neovim/nvim-lspconfig/pull/3232
-				if server_name == "tsserver" then
-					server_name = "ts_ls"
-				end
 				lspconfig[server_name].setup({
 					capabilities = capabilities,
 				})
