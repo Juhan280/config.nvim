@@ -21,7 +21,7 @@ To import the Neovim configuration from this repository to your local machine, f
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Juhan280/nvim.git ~/.config/nvim
+   git clone https://github.com/Juhan280/config.nvim.git ~/.config/nvim
    ```
 
 2. **Install Plugins:**
