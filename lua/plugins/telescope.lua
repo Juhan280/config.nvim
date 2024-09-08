@@ -8,13 +8,12 @@ local keybinds = {
 	{ "<leader>fh", "help_tags",                 desc = "Find help" },
 }
 
-return {
+return { ---@type LazySpec
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"BurntSushi/ripgrep",
-		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	cmd = "Telescope",
 	keys = keybinds,
@@ -22,13 +21,7 @@ return {
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 
-		telescope.setup({
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
-				},
-			},
-		})
+		telescope.setup()
 
 		for _, keybind in ipairs(keybinds) do
 			local rhs = builtin[keybind[2]]
@@ -36,7 +29,5 @@ return {
 				vim.keymap.set("n", keybind[1], rhs, { desc = keybind.desc })
 			end
 		end
-
-		telescope.load_extension("ui-select")
 	end,
 }

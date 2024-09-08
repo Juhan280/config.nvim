@@ -31,7 +31,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			vim.diagnostic.open_float({ border = "rounded" })
 		end, "Floating diagnostics")
 		nmap("<leader>lc", function()
-			require("telescope")
 			vim.lsp.buf.code_action()
 		end, "Code Action")
 
