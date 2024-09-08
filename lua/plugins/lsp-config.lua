@@ -8,7 +8,7 @@ return { ---@type LazySpec
 
 		"folke/neoconf.nvim",
 	},
-	event = "VeryLazy",
+	lazy = false,
 	config = function()
 		local lspconfig = require("lspconfig")
 		local masonlsp = require("mason-lspconfig")
