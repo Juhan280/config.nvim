@@ -37,7 +37,7 @@ return {
 			get_git_button(dashboard),
 			dashboard.button("h", "󰋖  > Help", ":Telescope help_tags<CR>"),
 			dashboard.button("l", "  > Open Lazy", ":Lazy<CR>"),
-			dashboard.button("c", "  > Config", ":e $MYVIMRC | :cd %:p:h |  pwd<CR>"),
+			dashboard.button("c", "  > Config", ":call chdir(fnamemodify($MYVIMRC, ':p:h')) | Oil . <CR>"),
 			dashboard.button("q", "󰈆  > Quit", ":qa<CR>"),
 		}
 
