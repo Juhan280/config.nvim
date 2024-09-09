@@ -6,7 +6,7 @@ vim.opt.fillchars = "eob: "
 
 -- Tab setting
 vim.opt.tabstop = 2
-vim.opt.shiftwidth = 0 -- when set to zero, it uses 'tabstop' value
+vim.opt.shiftwidth = 0   -- when set to zero, it uses 'tabstop' value
 vim.opt.softtabstop = -1 -- when it is negative, it follows 'shiftwidth'
 vim.opt.expandtab = false
 
@@ -36,6 +36,13 @@ vim.opt.whichwrap:append("<>[]hl")
 -- Keymaps
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = 'Exit terminal mode' })
+-- textobject to select entire buffer
+vim.keymap.set({ "o", "x" }, "gG", function()
+	vim.api.nvim_win_set_cursor(0, { 1, 0 })
+	if not (vim.fn.mode():find("V")) then vim.cmd.normal { "V", bang = true } end
+	vim.cmd.normal { "o", bang = true }
+	vim.api.nvim_win_set_cursor(0, { vim.fn.line("$"), 0 })
+end, { desc = "entire buffer" })
 
 -- For some reason tabstop is set back to 8 in gitcommit filetype
 vim.api.nvim_create_autocmd("FileType", {
