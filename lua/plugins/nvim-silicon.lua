@@ -1,3 +1,4 @@
+-- https://stackoverflow.com/questions/72182106/how-to-create-a-lua-function-that-gets-called-for-a-vim-neovim-motion
 ---@param clip boolean
 local function silicon_file_range(clip)
 	local old_func = vim.go.operatorfunc -- backup previous reference
@@ -34,11 +35,16 @@ return {
 		{ mode = "n", "<leader>sf", function() silicon_file_range(false) end,      desc = "Save code screenshot as file" },
 	},
 	opts = {
-		font = "Inconsolata Nerd Font Mono",
-		theme = vim.fn.stdpath("data") .. "/lazy/tokyonight.nvim/extras/sublime/tokyonight_night.tmTheme",
-		-- Configuration here, or leave empty to use defaults
+		disable_defaults = true,
+
+		language = function()
+			return vim.bo.filetype
+		end,
 		line_offset = function(args)
 			return args.line1
+		end,
+		output = function()
+			return "./" .. os.date("!%Y-%m-%dT%H-%M-%SZ") .. "_code.png"
 		end,
 		window_title = function()
 			return vim.fn.fnamemodify(
