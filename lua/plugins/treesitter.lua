@@ -16,13 +16,10 @@ return {
 					lookahead = true,
 
 					keymaps = {
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						-- You can optionally set descriptions to the mappings (used in the desc parameter of
-						-- nvim_buf_set_keymap) which plugins like which-key display
-						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-						["iS"] = { query = "@local.scope", query_group = "locals", desc = "Select inner part of a scope" },
+						["af"] = { query = "@function.outer", desc = "around function" },
+						["if"] = { query = "@function.inner", desc = "inside function" },
+						["ac"] = { query = "@class.outer", desc = "around class region" },
+						["ic"] = { query = "@class.inner", desc = "inside class region" },
 					},
 				},
 				swap = {
