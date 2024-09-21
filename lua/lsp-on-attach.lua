@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			vim.keymap.set("n", lhs, rhs, { buffer = event.buf, desc = "LSP " .. desc })
 		end
 
-		--- Guard against servers without the signatureHelper capability
+		-- Guard against servers without the signatureHelper capability
 		if client and client.server_capabilities.signatureHelpProvider then
 			---@diagnostic disable-next-line: missing-fields
 			require("lsp-overloads").setup(client, {})
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		nmap("<leader>lf", function()
 			vim.diagnostic.open_float({ border = "rounded" })
 		end, "Floating diagnostics")
-		nmap("<leader>lc", function()
+		nmap("<leader>la", function()
 			vim.lsp.buf.code_action()
 		end, "Code Action")
 

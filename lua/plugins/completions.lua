@@ -57,8 +57,8 @@ return { --- @type LazySpec
 				-- <c-l> will move you to the right of each of the expansion locations.
 				-- <c-h> is similar, except moving you backwards.
 				['<C-l>'] = cmp.mapping(function()
-					if ls.expand_or_locally_jumpable() then
-						ls.expand_or_jump()
+					if ls.locally_jumpable() then
+						ls.jump(1)
 					end
 				end, { 'i', 's' }),
 				['<C-h>'] = cmp.mapping(function()
@@ -71,10 +71,9 @@ return { --- @type LazySpec
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
 				{ name = "path" },
-				{ name = "buffer" },
 				{ name = "luasnip" },
 			}, {
-				{ name = "buffer" },
+				{ name = "buffer", keyword_length = 3 },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
