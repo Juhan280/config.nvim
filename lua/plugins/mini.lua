@@ -1,34 +1,32 @@
 return {
+	{ 'echasnovski/mini.ai',        event = "VeryLazy", opts = {} },
+	{ 'echasnovski/mini.pairs',     event = "VeryLazy", opts = {} },
+	{ 'echasnovski/mini.operators', event = "VeryLazy", opts = {} },
 	{
-		"echasnovski/mini.nvim",
-		version = false,
+		'echasnovski/mini.operators',
 		event = "VeryLazy",
-		config = function()
-			require("mini.ai").setup()
-			require("mini.pairs").setup()
-			require('mini.operators').setup({
-				exchange = {
-					prefix = '<leader>x',
-				}
-			})
-			require('mini.surround').setup({
-				mappings = {
-					add = 'ys',
-					delete = 'ds',
-					find = '',
-					find_left = '',
-					highlight = '',
-					replace = 'cs',
-					update_n_lines = '',
-				},
-				search_method = 'cover_or_next',
-			})
-
-			require('mini.notify').setup()
-		end,
+		opts = {
+			exchange = {
+				prefix = '<leader>x',
+			}
+		}
 	},
 	{
-		"echasnovski/mini.icons",
-		opts = {}
-	}
+		'echasnovski/mini.surround',
+		event = "VeryLazy",
+		opts = {
+			mappings = {
+				add = 'ys',
+				delete = 'ds',
+				find = '',
+				find_left = '',
+				highlight = '',
+				replace = 'cs',
+				update_n_lines = '',
+			},
+			search_method = 'cover_or_next',
+		}
+	},
+	{ 'echasnovski/mini.notify', event = "VeryLazy", opts = {} },
+	{ "echasnovski/mini.icons",  opts = {} }
 }

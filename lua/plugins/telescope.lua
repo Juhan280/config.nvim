@@ -10,7 +10,6 @@ local keybinds = {
 
 return { ---@type LazySpec
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"BurntSushi/ripgrep",
@@ -21,7 +20,7 @@ return { ---@type LazySpec
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
 
-		telescope.setup()
+		telescope.setup({})
 
 		for _, keybind in ipairs(keybinds) do
 			local rhs = builtin[keybind[2]]

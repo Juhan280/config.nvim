@@ -1,6 +1,5 @@
 return { --- @type LazySpec
 	"MeanderingProgrammer/render-markdown.nvim",
-	version = "*",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"echasnovski/mini.icons",

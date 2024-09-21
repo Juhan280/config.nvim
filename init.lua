@@ -1,7 +1,7 @@
 -- mapleader is needed to be defined before anything else
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
--- Set an empty winbar by default. So when the real winbar is loaded, 
+-- Set an empty winbar by default. So when the real winbar is loaded,
 -- it doesn't shift the entire buffer by one line
 vim.opt.winbar = " "
 
@@ -37,7 +37,7 @@ vim.opt.rtp:prepend(lazypath)
 
 ---@type LazyConfig
 local opts = {
-	defaults = { lazy = true },
+	defaults = { lazy = true, version = "*" },
 	install = { colorscheme = { "tokyonight" } },
 	ui = { border = "rounded" },
 	checker = { enabled = true, notify = false },
