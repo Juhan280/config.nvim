@@ -20,19 +20,11 @@ return {
 						["if"] = { query = "@function.inner", desc = "inside function" },
 						["ac"] = { query = "@class.outer", desc = "around class region" },
 						["ic"] = { query = "@class.inner", desc = "inside class region" },
-					},
-				},
-				swap = {
-					enable = true,
-					swap_next = {
-						["<leader>la"] = "@parameter.inner",
-					},
-					swap_previous = {
-						["<leader>lA"] = "@parameter.inner",
+						["aP"] = { query = "@parameter.outer", desc = "around parameter" },
+						["iP"] = { query = "@parameter.inner", desc = "inside parameter" },
 					},
 				},
 			},
-
 		})
 	end,
 }
