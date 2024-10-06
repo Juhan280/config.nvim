@@ -1,5 +1,6 @@
 return { --- @type LazySpec
 	"hrsh7th/nvim-cmp",
+	version = false,
 	dependencies = {
 		"onsails/lspkind.nvim",
 		"hrsh7th/cmp-nvim-lsp",
