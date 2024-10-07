@@ -6,6 +6,7 @@ return { ---@type LazySpec
 			"sindrets/diffview.nvim",
 			"nvim-telescope/telescope.nvim",
 		},
+		version = false,
 		cmd = "Neogit",
 		opts = {},
 	},
