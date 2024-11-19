@@ -1,9 +1,14 @@
-return {
+return { ---@type LazySpec
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
 		"echasnovski/mini.icons",
 	},
 	event = "VeryLazy",
+	init = function ()
+		-- Set an empty winbar by default. So when the real winbar is loaded,
+		-- it doesn't shift the entire buffer by one line
+		vim.opt.winbar = " "
+	end,
 	opts = {
 		options = {
 			theme = "auto",
