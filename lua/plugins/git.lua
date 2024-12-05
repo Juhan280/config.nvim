@@ -15,4 +15,14 @@ return { ---@type LazySpec
 		event = "VeryLazy",
 		opts = { current_line_blame = true },
 	},
+	{
+		"akinsho/git-conflict.nvim",
+		dev = true,
+		event = "VeryLazy",
+		config = function()
+			require("git-conflict").setup({
+				default_commands = false,
+			})
+		end
+	},
 }
