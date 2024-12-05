@@ -44,13 +44,10 @@ return {
 			return args.line1
 		end,
 		output = function()
-			return "./" .. os.date("!%Y-%m-%dT%H-%M-%SZ") .. "_code.png"
+			return "./" .. os.date("!%Y-%m-%dT%H-%M-%SZ_") .. vim.fn.expand('%:t') .. ".png"
 		end,
 		window_title = function()
-			return vim.fn.fnamemodify(
-				vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()),
-				":t"
-			)
+			return vim.fn.expand('%:t')
 		end,
 	}
 }
