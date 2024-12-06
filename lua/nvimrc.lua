@@ -26,7 +26,6 @@ vim.opt.spell = true
 vim.api.nvim_create_autocmd("FileType", {
 	desc = "Disable spell in certain filetypes",
 	pattern = "man",
-	once = true,
 	command = "setlocal nospell"
 })
 
