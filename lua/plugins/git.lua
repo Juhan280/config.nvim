@@ -16,8 +16,8 @@ return { ---@type LazySpec
 		opts = { current_line_blame = true },
 	},
 	{
-		"akinsho/git-conflict.nvim",
-		dev = true,
+		"Juhan280/git-conflict.nvim",
+		branch = "patched",
 		event = "VeryLazy",
 		config = function()
 			require("git-conflict").setup({
