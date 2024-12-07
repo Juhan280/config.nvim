@@ -1,4 +1,4 @@
-return {
+return { ---@type LazySpec
 	{ 'echasnovski/mini.ai',        event = "VeryLazy", opts = {} },
 	{ 'echasnovski/mini.pairs',     event = "VeryLazy", opts = {} },
 	{ 'echasnovski/mini.operators', event = "VeryLazy", opts = {} },
@@ -27,6 +27,5 @@ return {
 			search_method = 'cover_or_next',
 		}
 	},
-	{ 'echasnovski/mini.notify', event = "VeryLazy", opts = {} },
 	{ "echasnovski/mini.icons",  opts = {} }
 }

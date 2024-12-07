@@ -34,12 +34,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			vim.lsp.buf.code_action()
 		end, "Code Action")
 
-		if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-			nmap('<leader>li', function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-			end, 'Toggle Inlay Hints')
-		end
-
 		nmap("<leader>fm", function()
 			vim.lsp.buf.format({ async = true })
 		end, "Formatting")
