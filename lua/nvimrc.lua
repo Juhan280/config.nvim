@@ -25,7 +25,7 @@ vim.opt.ignorecase = true
 vim.opt.spell = true
 vim.api.nvim_create_autocmd("FileType", {
 	desc = "Disable spell in certain filetypes",
-	pattern = "man",
+	pattern = "checkhealth,man",
 	command = "setlocal nospell"
 })
 
