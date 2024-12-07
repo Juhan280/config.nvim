@@ -1,8 +1,6 @@
-return {
+return { ---@type LazySpec
 	"lukas-reineke/indent-blankline.nvim",
+	main = "ibl",
 	event = "VeryLazy",
-	config = function()
-		local ilb = require("ibl")
-		ilb.setup()
-	end,
+	config = true,
 }

@@ -3,6 +3,6 @@ return {
 	event = "VeryLazy",
 	config = function()
 		require("colorizer").setup({ "*", "!lazy" })
-		vim.api.nvim_command("ColorizerToggle")
+		vim.cmd("ColorizerToggle")
 	end,
 }

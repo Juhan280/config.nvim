@@ -1,3 +1,4 @@
+---@module "git-conflict"
 return { ---@type LazySpec
 	{
 		"NeogitOrg/neogit",
@@ -19,10 +20,8 @@ return { ---@type LazySpec
 		"Juhan280/git-conflict.nvim",
 		branch = "patched",
 		event = "VeryLazy",
-		config = function()
-			require("git-conflict").setup({
-				default_commands = false,
-			})
-		end
+		opt = { ---@type GitConflictUserConfig
+			default_commands = false,
+		}
 	},
 }
