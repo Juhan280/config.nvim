@@ -8,6 +8,6 @@ return { ---@type LazySpec
 		vim.o.timeoutlen = 300
 	end,
 	opts = { ---@type wk.Opts
-		plugins = { registers = not vim.os.isAndroid() },
+		plugins = { registers = not vim.os:isAndroid() },
 	},
 }
