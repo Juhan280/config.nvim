@@ -8,8 +8,8 @@ return {
 			style = "night",
 			transparent = true,
 			styles = {
-				comments = { italic = not vim.os.isAndroid() },
-				keywords = { italic = not vim.os.isAndroid() },
+				comments = { italic = not vim.os:isAndroid() },
+				keywords = { italic = not vim.os:isAndroid() },
 				sidebars = "transparent",
 				floats = "transparent",
 			},

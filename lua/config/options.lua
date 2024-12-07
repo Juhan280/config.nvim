@@ -1,3 +1,7 @@
+-- mapleader is needed to be defined before anything else
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Row number setting
 vim.opt.number = true
 vim.opt.relativenumber = true

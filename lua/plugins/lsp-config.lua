@@ -3,7 +3,7 @@ return { ---@type LazySpec
 	dependencies = {
 		{ "williamboman/mason.nvim", opts = {} },
 		"williamboman/mason-lspconfig.nvim",
-		{ "nvimtools/none-ls.nvim",  config = function() require("null-ls-config") end },
+		{ "nvimtools/none-ls.nvim",  config = function() require("config.null-ls") end },
 		"Issafalcon/lsp-overloads.nvim",
 
 		"folke/neoconf.nvim",
@@ -15,7 +15,7 @@ return { ---@type LazySpec
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-		require("lsp-on-attach")
+		require("config.lsp-attach")
 		require("neoconf").setup()
 
 		require('lspconfig.ui.windows').default_options.border = "rounded"
