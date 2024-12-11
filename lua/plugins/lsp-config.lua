@@ -13,7 +13,10 @@ return { ---@type LazySpec
 		local lspconfig = require("lspconfig")
 		local masonlsp = require("mason-lspconfig")
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+		local ok, nvim_cmp = pcall(require, "cmp_nvim_lsp")
+		if ok then
+			capabilities = vim.tbl_deep_extend('force', capabilities, nvim_cmp.default_capabilities())
+		end
 
 		require("config.lsp-attach")
 		require("neoconf").setup()

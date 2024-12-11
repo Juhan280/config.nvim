@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		nmap("<leader>rn", vim.lsp.buf.rename, "Rename")
 		nmap("gd", vim.lsp.buf.definition, "Go to Definition")
 		nmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
+		nmap("<leader>la", vim.lsp.buf.code_action, "Code Action")
 		nmap("<leader>gtd", ":Telescope lsp_type_definitions<CR>", "Go to Type Definition")
 		nmap("<leader>gr", ":Telescope lsp_references<CR>", "Show references")
 		nmap("<leader>ls", ":Telescope lsp_document_symbols<CR>", "Show Document Symbols")
@@ -30,9 +31,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		nmap("<leader>le", function()
 			vim.diagnostic.open_float({ border = "rounded" })
 		end, "Floating diagnostics")
-		nmap("<leader>la", function()
-			vim.lsp.buf.code_action()
-		end, "Code Action")
 
 		nmap("<leader>lf", function()
 			vim.lsp.buf.format({ async = true })
