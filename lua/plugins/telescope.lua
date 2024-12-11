@@ -13,6 +13,7 @@ return { ---@type LazySpec
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"BurntSushi/ripgrep",
+		"nvim-telescope/telescope-symbols.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	cmd = "Telescope",
