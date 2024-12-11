@@ -8,7 +8,6 @@ require("lazy").setup("plugins", {
 	install = { colorscheme = { "tokyonight" } },
 	ui = { border = "rounded" },
 	checker = { enabled = true, notify = false },
-	change_detection = { notify = false },
 })
 
 -- Diagnostic Signs
