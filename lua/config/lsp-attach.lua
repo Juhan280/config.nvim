@@ -27,14 +27,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		nmap("<leader>gr", ":Telescope lsp_references<CR>", "Show references")
 		nmap("<leader>ls", ":Telescope lsp_document_symbols<CR>", "Show Document Symbols")
 		nmap("<leader>ld", ":Telescope diagnostics<CR>", "Document Diagnostic")
-		nmap("<leader>lf", function()
+		nmap("<leader>le", function()
 			vim.diagnostic.open_float({ border = "rounded" })
 		end, "Floating diagnostics")
 		nmap("<leader>la", function()
 			vim.lsp.buf.code_action()
 		end, "Code Action")
 
-		nmap("<leader>fm", function()
+		nmap("<leader>lf", function()
 			vim.lsp.buf.format({ async = true })
 		end, "Formatting")
 	end
