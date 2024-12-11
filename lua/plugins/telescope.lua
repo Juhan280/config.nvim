@@ -13,6 +13,7 @@ return { ---@type LazySpec
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"BurntSushi/ripgrep",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	},
 	cmd = "Telescope",
 	keys = keybinds,
@@ -21,6 +22,7 @@ return { ---@type LazySpec
 		local builtin = require("telescope.builtin")
 
 		telescope.setup({})
+		telescope.load_extension('fzf')
 
 		for _, keybind in ipairs(keybinds) do
 			local rhs = builtin[keybind[2]]
