@@ -4,8 +4,10 @@ return { --- @type LazySpec
 	dependencies = {
 		"onsails/lspkind.nvim",
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+
+		"hrsh7th/cmp-buffer",
+		"f3fora/cmp-spell",
 
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
@@ -75,6 +77,16 @@ return { --- @type LazySpec
 				{ name = "luasnip" },
 			}, {
 				{ name = "buffer", keyword_length = 3 },
+				{
+					name = "spell",
+					option = {
+						keep_all_entries = true,
+						enable_in_context = function(params)
+							-- return require('cmp.config.context').in_treesitter_capture('spell')
+							return true
+						end,
+					}
+				},
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
@@ -85,6 +97,13 @@ return { --- @type LazySpec
 					end,
 					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
 					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
+					menu = ({
+						nvim_lsp = "[LSP]",
+						path = "[Path]",
+						luasnip = "[LuaSnip]",
+						buffer = "[Buffer]",
+						spell = "[Spell]",
+					})
 
 					-- The function below will be called before any actual modifications from lspkind
 					-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))

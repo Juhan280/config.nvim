@@ -15,7 +15,7 @@ return { ---@type LazySpec
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		local ok, nvim_cmp = pcall(require, "cmp_nvim_lsp")
 		if ok then
-			capabilities = vim.tbl_deep_extend('force', capabilities, nvim_cmp.default_capabilities())
+			capabilities = nvim_cmp.default_capabilities(capabilities)
 		end
 
 		require("config.lsp-attach")
