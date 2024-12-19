@@ -4,7 +4,7 @@ return {
 	priority = 1000,
 	config = function()
 		---@diagnostic disable-next-line: missing-fields
-		require("tokyonight").load({
+		require("tokyonight").setup({
 			style = "night",
 			transparent = true,
 			styles = {
@@ -13,10 +13,11 @@ return {
 				sidebars = "transparent",
 				floats = "transparent",
 			},
-			on_colors = function (colors)
-				-- The default commment is very hard to read
+			on_colors = function(colors)
+				-- The default comment is very hard to read
 				colors.comment = "#8080c0"
 			end
 		})
+		vim.cmd.colorscheme("tokyonight")
 	end,
 }
