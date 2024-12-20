@@ -7,7 +7,7 @@ return { --- @type LazySpec
 		"hrsh7th/cmp-path",
 
 		"hrsh7th/cmp-buffer",
-		"f3fora/cmp-spell",
+		-- "f3fora/cmp-spell",
 
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
@@ -77,16 +77,16 @@ return { --- @type LazySpec
 				{ name = "luasnip" },
 			}, {
 				{ name = "buffer", keyword_length = 3 },
-				{
+				--[[ {
 					name = "spell",
+					keyword_length = 4,
 					option = {
 						keep_all_entries = true,
-						enable_in_context = function(params)
-							-- return require('cmp.config.context').in_treesitter_capture('spell')
-							return true
+						enable_in_context = function()
+							return require('cmp.config.context').in_treesitter_capture('spell')
 						end,
 					}
-				},
+				}, ]]
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
