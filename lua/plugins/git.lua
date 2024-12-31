@@ -17,8 +17,8 @@ return { ---@type LazySpec
 		opts = { current_line_blame = true },
 	},
 	{
-		"Juhan280/git-conflict.nvim",
-		branch = "patched",
+		"akinsho/git-conflict.nvim",
+		version = false, -- TODO: remove it when v>1.2.0 is dropped
 		event = "VeryLazy",
 		opt = { ---@type GitConflictUserConfig
 			default_commands = false,
