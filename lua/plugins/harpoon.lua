@@ -1,16 +1,16 @@
 local keybinds = {
-	{ "<leader>a", function() require("harpoon"):list():add() end, desc = "Harpoon add file" },
 	{ "<leader>h", desc = "Harpoon" },
+	{ "<leader>hh", function() require("harpoon"):list():add() end, desc = "Harpoon add file" },
 	{
 		"<leader>hg",
 		function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
 		desc = "Harpoon quick menu"
 	},
 
-	{ "<leader>hh", function() require("harpoon"):list():select(1) end, desc = "buffer h" },
-	{ "<leader>hj", function() require("harpoon"):list():select(2) end, desc = "buffer j" },
-	{ "<leader>hk", function() require("harpoon"):list():select(3) end, desc = "buffer k" },
-	{ "<leader>hl", function() require("harpoon"):list():select(4) end, desc = "buffer l" },
+	{ "<C-j>", function() require("harpoon"):list():select(1) end, desc = "buffer j" },
+	{ "<C-k>", function() require("harpoon"):list():select(2) end, desc = "buffer k" },
+	{ "<C-l>", function() require("harpoon"):list():select(3) end, desc = "buffer l" },
+	{ "<C-;>", function() require("harpoon"):list():select(4) end, desc = "buffer ;" },
 }
 
 return {
