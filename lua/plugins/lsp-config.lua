@@ -7,6 +7,8 @@ return { ---@type LazySpec
 		"Issafalcon/lsp-overloads.nvim",
 
 		"folke/neoconf.nvim",
+		-- for json schema
+		"b0o/schemastore.nvim",
 	},
 	lazy = false,
 	config = function()
@@ -38,6 +40,17 @@ return { ---@type LazySpec
 
 				set_servers[server_name] = 1
 			end,
+
+			jsonls = function()
+				lspconfig.jsonls.setup({
+					settings = {
+						json = {
+							schemas = require('schemastore').json.schemas(),
+							validate = { enable = true },
+						},
+					},
+				})
+			end
 		})
 
 		-- servers that are not installed by mason but exists in the PATH
