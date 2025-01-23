@@ -69,6 +69,7 @@ return { ---@type LazySpec
 					}
 				},
 			},
+			taplo = {},
 		}
 
 		for server_name, server in pairs(servers) do
