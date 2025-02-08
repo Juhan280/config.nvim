@@ -25,6 +25,9 @@ vim.opt.splitbelow = true
 -- Allow insensitive tab completion in command mode
 vim.opt.ignorecase = true
 
+-- Execute .nvim.lua, .nvimrc, and .exrc files in the current directory
+vim.opt.exrc = true
+
 -- Check spelling in comments other places
 vim.opt.spell = true
 vim.api.nvim_create_autocmd("FileType", {
