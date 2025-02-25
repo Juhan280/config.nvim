@@ -21,7 +21,7 @@ return { ---@type LazySpec
 		end
 
 		require("config.lsp-attach")
-		require("neoconf").setup()
+		-- require("neoconf").setup()
 
 		require('lspconfig.ui.windows').default_options.border = "rounded"
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -70,6 +70,11 @@ return { ---@type LazySpec
 				},
 			},
 			taplo = {},
+			tinymist = {
+				settings = {
+					formatterMode = "typstyle",
+				}
+			},
 		}
 
 		for server_name, server in pairs(servers) do
