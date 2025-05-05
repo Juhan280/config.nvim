@@ -18,19 +18,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			require("lsp-overloads").setup(client, {})
 		end
 
-		nmap("K", vim.lsp.buf.hover, "Show Documentation")
-		nmap("<A-k>", vim.lsp.buf.signature_help, "Signature Help")
-		nmap("<leader>rn", vim.lsp.buf.rename, "Rename")
+		nmap("K", function()
+			vim.lsp.buf.hover({ title = "Hover" })
+		end, "Show Documentation")
 		nmap("gd", vim.lsp.buf.definition, "Go to Definition")
 		nmap("gD", vim.lsp.buf.declaration, "Go to Declaration")
-		nmap("<leader>la", vim.lsp.buf.code_action, "Code Action")
 		nmap("<leader>gtd", ":Telescope lsp_type_definitions<CR>", "Go to Type Definition")
 		nmap("<leader>gr", ":Telescope lsp_references<CR>", "Show references")
 		nmap("<leader>ls", ":Telescope lsp_document_symbols<CR>", "Show Document Symbols")
 		nmap("<leader>ld", ":Telescope diagnostics<CR>", "Document Diagnostic")
-		nmap("<leader>le", function()
-			vim.diagnostic.open_float({ border = "rounded" })
-		end, "Floating diagnostics")
+		nmap("<leader>le", vim.diagnostic.open_float, "Floating diagnostics")
 
 		nmap("<leader>lf", function()
 			vim.lsp.buf.format({ async = true })

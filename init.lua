@@ -1,5 +1,6 @@
 require("config.setup")
 require("config.options")
+require("config.overrides")
 
 ---@diagnostic disable-next-line: missing-fields
 require("lazy").setup("plugins", {
@@ -10,12 +11,18 @@ require("lazy").setup("plugins", {
 	checker = { enabled = true, notify = false },
 })
 
--- Diagnostic Signs
-local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+-- Diagnostic
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚",
+			[vim.diagnostic.severity.WARN] = "󰀪",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "󰌶",
+		}
+	}
+})
 
 -- Keymaps
 vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })

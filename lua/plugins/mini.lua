@@ -8,6 +8,9 @@ return { ---@type LazySpec
 		opts = {
 			exchange = {
 				prefix = '<leader>x',
+			},
+			replace = {
+				prefix = '<leader>r'
 			}
 		}
 	},

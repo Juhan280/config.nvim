@@ -23,11 +23,6 @@ return { ---@type LazySpec
 		require("config.lsp-attach")
 		-- require("neoconf").setup()
 
-		require('lspconfig.ui.windows').default_options.border = "rounded"
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
-		})
-
 		masonlsp.setup()
 
 		local set_servers = {}
