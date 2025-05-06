@@ -30,9 +30,9 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = 'Exit terminal mode' }
 -- textobject to select entire buffer
 vim.keymap.set({ "o", "x" }, "gG", function()
 	vim.api.nvim_win_set_cursor(0, { 1, 0 })
-	if not (vim.fn.mode():find("V")) then vim.cmd.normal { "V", bang = true } end
+	if not (vim.fn.mode():find("V")) then vim.cmd.normal({ "V", bang = true }) end
 	vim.cmd.normal { "o", bang = true }
 	vim.api.nvim_win_set_cursor(0, { vim.fn.line("$"), 0 })
-end, { desc = "entire buffer" })
+end, { desc = "Entire Buffer" })
 
 require("config.autocmds")

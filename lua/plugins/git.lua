@@ -18,7 +18,7 @@ return { ---@type LazySpec
 	},
 	{
 		"akinsho/git-conflict.nvim",
-		version = false, -- TODO: remove it when v>1.2.0 is dropped
+		version = false, -- TODO: remove it when v>2.1.0 is dropped
 		event = "VeryLazy",
 		opt = { ---@type GitConflictUserConfig
 			default_commands = false,
