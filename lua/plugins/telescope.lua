@@ -5,6 +5,7 @@ local keybinds = {
 	{ "<leader>fg", "live_grep",                 desc = "Live grep" },
 	{ "<leader>fb", "buffers",                   desc = "Find buffer" },
 	{ "<leader>fz", "current_buffer_fuzzy_find", desc = "Find in files" },
+	{ "<leader>fR", "resume",                    desc = "Resume last search" },
 	{ "<leader>fh", "help_tags",                 desc = "Find help" },
 }
 
