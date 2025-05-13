@@ -36,6 +36,9 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal nospell"
 })
 
+-- Set rounded border for floating windows
+vim.opt.winborder = "rounded"
+
 -- Folds
 vim.opt.foldlevelstart = 5
 vim.opt.foldmethod = "expr"

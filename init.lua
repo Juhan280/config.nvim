@@ -1,6 +1,5 @@
 require("config.setup")
 require("config.options")
-require("config.overrides")
 
 ---@diagnostic disable-next-line: missing-fields
 require("lazy").setup("plugins", {
