@@ -31,8 +31,7 @@ return { ---@type LazySpec
 			"tinymist",
 		}
 
-		---@type { [string]: vim.lsp.ClientConfig }
-		---@diagnostic disable: missing-fields
+		---@type { [string]: vim.lsp.Config }
 		local configs = {
 			["*"] = { capabilities = capabilities },
 			jsonls = {
@@ -54,13 +53,20 @@ return { ---@type LazySpec
 					}
 				},
 			},
+			taplo = {
+				root_dir = function(bufnr, cb)
+					local find_root = require('lspconfig.util').root_pattern('.git', '*.toml')
+					local curent = vim.api.nvim_buf_get_name(bufnr)
+					local root = find_root(curent)
+					cb(root)
+				end,
+			},
 			tinymist = {
 				settings = {
 					formatterMode = "typstyle",
 				}
 			},
 		}
-		---@diagnostic enable: missing-fields
 
 		for name, config in pairs(configs) do
 			vim.lsp.config(name, config)
