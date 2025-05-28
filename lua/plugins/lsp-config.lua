@@ -26,6 +26,7 @@ return { ---@type LazySpec
 			"clangd",
 			"gleam",
 			"lua_ls",
+			"nushell",
 			"rust_analyzer",
 			"taplo",
 			"tinymist",
@@ -54,11 +55,8 @@ return { ---@type LazySpec
 				},
 			},
 			taplo = {
-				root_dir = function(bufnr, cb)
-					local find_root = require('lspconfig.util').root_pattern('.git', '*.toml')
-					local curent = vim.api.nvim_buf_get_name(bufnr)
-					local root = find_root(curent)
-					cb(root)
+				root_dir = function(bufnr, on_dir)
+					on_dir(vim.fs.root(bufnr, { '.git' }) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
 				end,
 			},
 			tinymist = {
