@@ -7,9 +7,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 
--- Use system clipboard by default
-vim.opt.clipboard = "unnamedplus"
-
 -- Tab setting
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 0   -- when set to zero, it uses 'tabstop' value
