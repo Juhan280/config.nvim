@@ -17,6 +17,7 @@ vim.opt.expandtab = false
 vim.opt.wrap = false
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 5
+vim.opt.smoothscroll = true
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
