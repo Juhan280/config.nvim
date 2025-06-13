@@ -23,8 +23,9 @@ vim.opt.smoothscroll = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Allow insensitive tab completion in command mode
+-- Case insensitive search result and tab completion in command mode
 vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Execute .nvim.lua, .nvimrc, and .exrc files in the current directory
 vim.opt.exrc = true
