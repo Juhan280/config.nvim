@@ -1,13 +1,13 @@
-return {
+return { ---@type LazySpec
 	"numToStr/Comment.nvim",
 	version = false,
 	keys = {
-		{ "gcc", mode = "n",          desc = "Comment toggle current line" },
-		{ "gc",  mode = { "n", "o" }, desc = "Comment toggle linewise" },
-		{ "gc",  mode = "x",          desc = "Comment toggle linewise (visual)" },
-		{ "gbc", mode = "n",          desc = "Comment toggle current block" },
-		{ "gb",  mode = { "n", "o" }, desc = "Comment toggle blockwise" },
-		{ "gb",  mode = "x",          desc = "Comment toggle blockwise (visual)" },
+		{ "gcc", mode = "n",          desc = "Toggle comment line" },
+		{ "gc",  mode = { "n", "o" }, desc = "Toggle comment linewise" },
+		{ "gc",  mode = "x",          desc = "Toggle comment linewise (visual)" },
+		{ "gbc", mode = "n",          desc = "Toggle comment block" },
+		{ "gb",  mode = { "n", "o" }, desc = "Toggle comment blockwise" },
+		{ "gb",  mode = "x",          desc = "Toggle comment blockwise (visual)" },
 	},
 	opts = {},
 }
