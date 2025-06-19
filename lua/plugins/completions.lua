@@ -1,125 +1,61 @@
-return { --- @type LazySpec
-	"hrsh7th/nvim-cmp",
-	version = false,
-	dependencies = {
-		"onsails/lspkind.nvim",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-path",
+return { ---@type LazySpec
+	'saghen/blink.cmp',
+	dependencies = { 'rafamadriz/friendly-snippets' },
+	event = { "InsertEnter" },
 
-		"hrsh7th/cmp-buffer",
-		-- "f3fora/cmp-spell",
+	---@module 'blink.cmp'
+	---@type blink.cmp.Config
+	opts = {
+		keymap = { preset = 'default' },
 
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
-		"rafamadriz/friendly-snippets",
+		appearance = { nerd_font_variant = 'mono' },
 
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = {
-				library = {
-					{ path = "luvit-meta/library", words = { "vim%.uv" } },
+		completion = {
+			documentation = {
+				auto_show = true,
+				auto_show_delay_ms = 500,
+			},
+			menu = {
+				draw = {
+					columns = {
+						{ "kind_icon" },
+						{ "label",      "label_description" },
+						{ "source_name" }
+					},
+				}
+			},
+			ghost_text = { enabled = true }
+		},
+		signature = { enabled = true },
+
+		sources = {
+			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			per_filetype = {
+				lua = { inherit_defaults = true, "lazydev" }
+			},
+			providers = {
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
 				},
 			},
 		},
-		"Bilal2453/luvit-meta",
 
-	},
-	event = { "InsertEnter" },
-	config = function()
-		local cmp = require("cmp")
-		local ls = require("luasnip")
-		local lspkind = require("lspkind")
-		require("luasnip.loaders.from_vscode").lazy_load()
-
-		cmp.setup({
-			snippet = {
-				expand = function(args)
-					ls.lsp_expand(args.body)
+		fuzzy = {
+			implementation = "prefer_rust_with_warning",
+			sorts = {
+				function(a, b)
+					if (a.label:sub(1, 1) == "_") ~= (b.label:sub(1, 1) == "_") then
+						-- return true to sort `a` after `b`, and vice versa
+						return not a.label:sub(1, 1) == "_"
+					end
+					-- nothing returned, fallback to the next sort
 				end,
+				"score",
+				"sort_text",
 			},
-			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
-			},
-			mapping = cmp.mapping.preset.insert({
-				-- Select the [n]ext item
-				['<C-n>'] = cmp.mapping.select_next_item(),
-				-- Select the [p]revious item
-				['<C-p>'] = cmp.mapping.select_prev_item(),
-
-				-- Scroll the documentation window [b]ack / [f]orward
-				['<C-b>'] = cmp.mapping.scroll_docs(-4),
-				['<C-f>'] = cmp.mapping.scroll_docs(4),
-
-				-- Manually trigger a completion from nvim-cmp.
-				["<C-Space>"] = cmp.mapping.complete(),
-				["<C-e>"] = cmp.mapping.abort(),
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
-
-				-- <c-l> will move you to the right of each of the expansion locations.
-				-- <c-h> is similar, except moving you backwards.
-				['<C-l>'] = cmp.mapping(function()
-					if ls.locally_jumpable() then
-						ls.jump(1)
-					end
-				end, { 'i', 's' }),
-				['<C-h>'] = cmp.mapping(function()
-					if ls.locally_jumpable(-1) then
-						ls.jump(-1)
-					end
-				end, { 'i', 's' }),
-
-			}),
-			sources = cmp.config.sources({
-				{ name = "nvim_lsp" },
-				{ name = "path" },
-				{ name = "luasnip" },
-			}, {
-				{ name = "buffer", keyword_length = 3 },
-				--[[ {
-					name = "spell",
-					keyword_length = 4,
-					option = {
-						keep_all_entries = true,
-						enable_in_context = function()
-							return require('cmp.config.context').in_treesitter_capture('spell')
-						end,
-					}
-				}, ]]
-			}),
-			formatting = {
-				format = lspkind.cmp_format({
-					mode = "symbol_text",
-					-- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-					maxwidth = function()
-						return math.floor(0.45 * vim.o.columns)
-					end,
-					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-					show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-					menu = ({
-						nvim_lsp = "[LSP]",
-						path = "[Path]",
-						luasnip = "[LuaSnip]",
-						buffer = "[Buffer]",
-						spell = "[Spell]",
-					})
-
-					-- The function below will be called before any actual modifications from lspkind
-					-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-					--[[ before = function(entry, vim_item)
-						-- ...
-						return vim_item
-					end, ]]
-				}),
-				expandable_indicator = true,
-				fields = { "abbr", "kind", "menu" },
-			},
-		})
-
-		ls.config.set_config({
-			history = false,
-			updateevents = "TextChanged,TextChangedI",
-		})
-	end,
+		}
+	},
+	opts_extend = { "sources.default" }
 }
