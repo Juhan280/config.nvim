@@ -12,12 +12,6 @@ return { ---@type LazySpec
 		},
 		lazy = false,
 		config = function()
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			local ok, nvim_cmp = pcall(require, "cmp_nvim_lsp")
-			if ok then
-				capabilities = nvim_cmp.default_capabilities(capabilities)
-			end
-
 			require("config.lsp-attach")
 
 			-- servers that are not installed by mason but exists in the PATH
@@ -33,7 +27,6 @@ return { ---@type LazySpec
 
 			---@type { [string]: vim.lsp.Config }
 			local configs = {
-				["*"] = { capabilities = capabilities },
 				jsonls = {
 					settings = {
 						json = {
