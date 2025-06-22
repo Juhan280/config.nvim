@@ -44,7 +44,7 @@ vim.opt.winborder = "rounded"
 -- Folds
 vim.opt.foldlevelstart = 5
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
