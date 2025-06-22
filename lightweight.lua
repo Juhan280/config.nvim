@@ -16,3 +16,6 @@ require("tokyonight").load({
 		colors.comment = "#8080c0"
 	end
 })
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
