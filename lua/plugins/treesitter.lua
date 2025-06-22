@@ -5,11 +5,6 @@ return { ---@type LazySpec
 		version = false,
 		lazy = false,
 		build = ":TSUpdate",
-		-- TODO: check if anything else is necessary to do
-		-- opts = { ---@type TSConfig
-		-- 	highlight = { enable = true },
-		-- 	indent = { enable = true },
-		-- }
 		config = function()
 			-- Auto install logic
 			local nvim_treesitter = require("nvim-treesitter")
@@ -32,6 +27,9 @@ return { ---@type LazySpec
 				group = vim.api.nvim_create_augroup("NvimTreesitter-auto_install", { clear = true }),
 				callback = try_install_curr_lang,
 			})
+
+			-- Enable treesitter based indentation
+			vim.o.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		end
 	},
 	{
