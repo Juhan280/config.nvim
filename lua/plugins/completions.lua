@@ -1,7 +1,7 @@
 return { ---@type LazySpec
 	'saghen/blink.cmp',
 	dependencies = { 'rafamadriz/friendly-snippets' },
-	event = { "InsertEnter" },
+	event = { "InsertEnter", "CmdlineEnter" },
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
@@ -24,7 +24,6 @@ return { ---@type LazySpec
 					},
 				}
 			},
-			ghost_text = { enabled = true }
 		},
 		signature = { enabled = true },
 
@@ -34,6 +33,14 @@ return { ---@type LazySpec
 				lua = { inherit_defaults = true, "lazydev" }
 			},
 			providers = {
+				path = {
+					opts = {
+						-- Path completion from `cwd` instead of current buffer's directory
+						get_cwd = function(_)
+							return vim.fn.getcwd()
+						end,
+					},
+				},
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",
@@ -48,7 +55,7 @@ return { ---@type LazySpec
 				function(a, b)
 					if (a.label:sub(1, 1) == "_") ~= (b.label:sub(1, 1) == "_") then
 						-- return true to sort `a` after `b`, and vice versa
-						return not a.label:sub(1, 1) == "_"
+						return a.label:sub(1, 1) ~= "_"
 					end
 					-- nothing returned, fallback to the next sort
 				end,
