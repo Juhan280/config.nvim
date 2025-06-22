@@ -1,4 +1,3 @@
----@module "git-conflict"
 return { ---@type LazySpec
 	{
 		"NeogitOrg/neogit",
@@ -20,7 +19,9 @@ return { ---@type LazySpec
 		"akinsho/git-conflict.nvim",
 		version = false, -- TODO: remove it when v>2.1.0 is dropped
 		event = "VeryLazy",
-		opt = { ---@type GitConflictUserConfig
+		---@module "git-conflict"
+		---@type GitConflictUserConfig
+		opts = {
 			default_commands = false,
 		}
 	},
