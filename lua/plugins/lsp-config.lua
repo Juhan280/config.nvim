@@ -4,7 +4,6 @@ return { ---@type LazySpec
 		dependencies = {
 			{ "mason-org/mason.nvim",           opts = {} },
 			{ "mason-org/mason-lspconfig.nvim", opts = {} },
-			{ "nvimtools/none-ls.nvim",         config = function() require("config.null-ls") end },
 			"Issafalcon/lsp-overloads.nvim",
 
 			-- for json schema
@@ -76,5 +75,20 @@ return { ---@type LazySpec
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},
+	},
+	{
+		"nvimtools/none-ls.nvim",
+		cond = false,
+		config = function()
+			local null_ls = require("null-ls")
+			local b = null_ls.builtins
+
+			null_ls.setup({
+				sources = {
+					-- b.formatting.stylua,
+					-- b.formatting.shfmt,
+				},
+			})
+		end
 	},
 }
