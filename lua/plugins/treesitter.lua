@@ -35,7 +35,7 @@ return { ---@type LazySpec
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		branch = "main",
-		lazy = false,
+		event = "InsertEnter",
 		config = function()
 			require("nvim-treesitter-textobjects").setup({
 				select = {
