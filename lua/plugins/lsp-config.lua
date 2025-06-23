@@ -2,8 +2,6 @@ return { ---@type LazySpec
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "mason-org/mason.nvim",           opts = {} },
-			{ "mason-org/mason-lspconfig.nvim", opts = {} },
 			"Issafalcon/lsp-overloads.nvim",
 
 			-- for json schema
@@ -62,6 +60,15 @@ return { ---@type LazySpec
 			end
 			vim.lsp.enable(servers)
 		end,
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = {
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig"
+		},
+		event = "VeryLazy",
+		opts = {}
 	},
 	{
 		"folke/lazydev.nvim",
