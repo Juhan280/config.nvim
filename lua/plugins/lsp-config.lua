@@ -67,8 +67,12 @@ return { ---@type LazySpec
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
+		cond = function()
+			return vim.fs.root(0, ".luarc.json") == nil
+		end,
 		opts = {
 			library = {
+				"lazy.nvim",
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 			},
 		},

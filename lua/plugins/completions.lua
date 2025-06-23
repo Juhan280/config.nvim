@@ -29,9 +29,13 @@ return { ---@type LazySpec
 
 		sources = {
 			default = { 'lsp', 'path', 'snippets', 'buffer' },
-			per_filetype = {
-				lua = { inherit_defaults = true, "lazydev" }
-			},
+			per_filetype = (function()
+				local t = {} ---@type table<string, blink.cmp.SourceListPerFiletype>
+				if vim.fs.root(0, ".luarc.json") == nil then
+					t.lua = { inherit_defaults = true, "lazydev" }
+				end
+				return t
+			end)(),
 			providers = {
 				path = {
 					opts = {
