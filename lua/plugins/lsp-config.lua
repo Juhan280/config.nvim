@@ -27,31 +27,31 @@ return { ---@type LazySpec
 				jsonls = {
 					settings = {
 						json = {
-							schemas = require('schemastore').json.schemas(),
+							schemas = require("schemastore").json.schemas(),
 							validate = { enable = true },
 						},
-					}
+					},
 				},
 				rust_analyzer = {
 					settings = {
-						['rust-analyzer'] = {
+						["rust-analyzer"] = {
 							diagnostics = {
 								experimental = {
 									enable = true,
-								}
-							}
-						}
+								},
+							},
+						},
 					},
 				},
 				taplo = {
 					root_dir = function(bufnr, on_dir)
-						on_dir(vim.fs.root(bufnr, { '.git' }) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
+						on_dir(vim.fs.root(bufnr, { ".git" }) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
 					end,
 				},
 				tinymist = {
 					settings = {
 						formatterMode = "typstyle",
-					}
+					},
 				},
 			}
 
@@ -65,10 +65,10 @@ return { ---@type LazySpec
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig"
+			"neovim/nvim-lspconfig",
 		},
 		event = "VeryLazy",
-		opts = {}
+		opts = {},
 	},
 	{
 		"folke/lazydev.nvim",

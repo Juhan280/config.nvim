@@ -23,6 +23,6 @@ return { ---@type LazySpec
 		---@type GitConflictUserConfig
 		opts = {
 			default_commands = false,
-		}
+		},
 	},
 }

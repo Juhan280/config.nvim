@@ -1,14 +1,14 @@
 return { ---@type LazySpec
-	'saghen/blink.cmp',
-	dependencies = { 'rafamadriz/friendly-snippets' },
+	"saghen/blink.cmp",
+	dependencies = { "rafamadriz/friendly-snippets" },
 	event = { "InsertEnter", "CmdlineEnter" },
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
-		keymap = { preset = 'default' },
+		keymap = { preset = "default" },
 
-		appearance = { nerd_font_variant = 'mono' },
+		appearance = { nerd_font_variant = "mono" },
 
 		completion = {
 			documentation = {
@@ -19,16 +19,16 @@ return { ---@type LazySpec
 				draw = {
 					columns = {
 						{ "kind_icon" },
-						{ "label",      "label_description" },
-						{ "source_name" }
+						{ "label", "label_description" },
+						{ "source_name" },
 					},
-				}
+				},
 			},
 		},
 		signature = { enabled = true },
 
 		sources = {
-			default = { 'lsp', 'path', 'snippets', 'buffer' },
+			default = { "lsp", "path", "snippets", "buffer" },
 			per_filetype = (function()
 				local t = {} ---@type table<string, blink.cmp.SourceListPerFiletype>
 				if vim.fs.root(0, ".luarc.json") == nil then
@@ -66,7 +66,7 @@ return { ---@type LazySpec
 				"score",
 				"sort_text",
 			},
-		}
+		},
 	},
-	opts_extend = { "sources.default" }
+	opts_extend = { "sources.default" },
 }

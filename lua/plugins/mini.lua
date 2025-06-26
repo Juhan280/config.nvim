@@ -1,34 +1,34 @@
 return { ---@type LazySpec
-	{ 'echasnovski/mini.ai',        event = "VeryLazy", opts = {} },
-	{ 'echasnovski/mini.pairs',     event = "VeryLazy", opts = {} },
-	{ 'echasnovski/mini.operators', event = "VeryLazy", opts = {} },
+	{ "echasnovski/mini.ai", event = "VeryLazy", opts = {} },
+	{ "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },
+	{ "echasnovski/mini.operators", event = "VeryLazy", opts = {} },
 	{
-		'echasnovski/mini.operators',
+		"echasnovski/mini.operators",
 		event = "VeryLazy",
 		opts = {
 			exchange = {
-				prefix = '<leader>x',
+				prefix = "<leader>x",
 			},
 			replace = {
-				prefix = '<leader>r'
-			}
-		}
+				prefix = "<leader>r",
+			},
+		},
 	},
 	{
-		'echasnovski/mini.surround',
+		"echasnovski/mini.surround",
 		event = "VeryLazy",
 		opts = {
 			mappings = {
-				add = 'ys',
-				delete = 'ds',
-				find = '',
-				find_left = '',
-				highlight = '',
-				replace = 'cs',
-				update_n_lines = '',
+				add = "ys",
+				delete = "ds",
+				find = "",
+				find_left = "",
+				highlight = "",
+				replace = "cs",
+				update_n_lines = "",
 			},
-			search_method = 'cover_or_next',
-		}
+			search_method = "cover_or_next",
+		},
 	},
-	{ "echasnovski/mini.icons",  opts = {} }
+	{ "echasnovski/mini.icons", opts = {} },
 }

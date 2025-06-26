@@ -30,7 +30,7 @@ return { ---@type LazySpec
 
 			-- Enable treesitter based indentation
 			vim.o.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
@@ -48,8 +48,7 @@ return { ---@type LazySpec
 			---@param desc string?
 			local function mapxo(lhs, query_string, desc)
 				vim.keymap.set({ "x", "o" }, lhs, function()
-					require("nvim-treesitter-textobjects.select")
-							.select_textobject(query_string, "textobjects")
+					require("nvim-treesitter-textobjects.select").select_textobject(query_string, "textobjects")
 				end, { desc = desc })
 			end
 
@@ -59,6 +58,6 @@ return { ---@type LazySpec
 			mapxo("ic", "@class.inner", "inside class region")
 			mapxo("aP", "@parameter.outer", "around parameter")
 			mapxo("iP", "@parameter.inner", "inside parameter")
-		end
-	}
+		end,
+	},
 }

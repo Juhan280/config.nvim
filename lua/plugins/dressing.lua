@@ -1,5 +1,5 @@
 return { ---@type LazySpec
-  "stevearc/dressing.nvim",
+	"stevearc/dressing.nvim",
 	event = "VeryLazy",
-  opts = {},
+	opts = {},
 }

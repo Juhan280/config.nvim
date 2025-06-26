@@ -14,7 +14,7 @@ require("tokyonight").load({
 	on_colors = function(colors)
 		-- The default comment is very hard to read
 		colors.comment = "#8080c0"
-	end
+	end,
 })
 
 vim.opt.ignorecase = true

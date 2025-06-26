@@ -9,7 +9,7 @@ vim.opt.cursorline = true
 
 -- Tab setting
 vim.opt.tabstop = 2
-vim.opt.shiftwidth = 0   -- when set to zero, it uses 'tabstop' value
+vim.opt.shiftwidth = 0 -- when set to zero, it uses 'tabstop' value
 vim.opt.softtabstop = -1 -- when it is negative, it follows 'shiftwidth'
 vim.opt.expandtab = false
 
@@ -35,7 +35,7 @@ vim.opt.spell = true
 vim.api.nvim_create_autocmd("FileType", {
 	desc = "Disable spell in certain filetypes",
 	pattern = "checkhealth,man",
-	command = "setlocal nospell"
+	command = "setlocal nospell",
 })
 
 -- Set rounded border for floating windows

@@ -14,7 +14,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	if out.code ~= 0 then
 		vim.api.nvim_echo({
 			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out.stderr,                     "WarningMsg" },
+			{ out.stderr, "WarningMsg" },
 			{ "\nPress any key to exit..." },
 		}, true, {})
 		vim.fn.getchar()
@@ -25,7 +25,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Allow differentiating between android and other os because
 -- termux doesn't support some features
-vim.os = { name = '' }
+vim.os = { name = "" }
 local f = io.popen("uname -o", "r")
 if f then
 	local output = f:read("*a")

@@ -1,16 +1,48 @@
 local keybinds = {
 	{ "<leader>h", desc = "Harpoon" },
-	{ "<leader>hh", function() require("harpoon"):list():add() end, desc = "Harpoon add file" },
+	{
+		"<leader>hh",
+		function()
+			require("harpoon"):list():add()
+		end,
+		desc = "Harpoon add file",
+	},
 	{
 		"<leader>hg",
-		function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
-		desc = "Harpoon quick menu"
+		function()
+			require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+		end,
+		desc = "Harpoon quick menu",
 	},
 
-	{ "<C-j>", function() require("harpoon"):list():select(1) end, desc = "buffer j" },
-	{ "<C-k>", function() require("harpoon"):list():select(2) end, desc = "buffer k" },
-	{ "<C-l>", function() require("harpoon"):list():select(3) end, desc = "buffer l" },
-	{ "<C-;>", function() require("harpoon"):list():select(4) end, desc = "buffer ;" },
+	{
+		"<C-j>",
+		function()
+			require("harpoon"):list():select(1)
+		end,
+		desc = "buffer j",
+	},
+	{
+		"<C-k>",
+		function()
+			require("harpoon"):list():select(2)
+		end,
+		desc = "buffer k",
+	},
+	{
+		"<C-l>",
+		function()
+			require("harpoon"):list():select(3)
+		end,
+		desc = "buffer l",
+	},
+	{
+		"<C-;>",
+		function()
+			require("harpoon"):list():select(4)
+		end,
+		desc = "buffer ;",
+	},
 }
 
 return {
@@ -27,5 +59,5 @@ return {
 				vim.keymap.set("n", keybind[1], keybind[2], { desc = keybind.desc })
 			end
 		end
-	end
+	end,
 }
