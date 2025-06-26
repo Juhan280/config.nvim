@@ -159,7 +159,7 @@ return { ---@type LazySpec
 					.new({
 						name = "Format On Save",
 						get = function()
-							return vim.g.enable_format_on_save
+							return vim.g.enable_format_on_save ~= false
 						end,
 						set = function(state)
 							vim.g.enable_format_on_save = state
