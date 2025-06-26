@@ -155,6 +155,17 @@ return { ---@type LazySpec
 					.option("background", { off = "light", on = "dark", name = "Dark Background" })
 					:map("<leader>tb")
 				Snacks.toggle.inlay_hints():map("<leader>th")
+				Snacks.toggle
+					.new({
+						name = "Format On Save",
+						get = function()
+							return vim.g.enable_format_on_save
+						end,
+						set = function(state)
+							vim.g.enable_format_on_save = state
+						end,
+					})
+					:map("<leader>tf")
 			end,
 		})
 	end,
