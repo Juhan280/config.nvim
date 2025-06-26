@@ -29,8 +29,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		nmap("<leader>ld", ":Telescope diagnostics<CR>", "Document Diagnostic")
 		nmap("<leader>le", vim.diagnostic.open_float, "Floating diagnostics")
 
-		nmap("<leader>lf", function()
-			vim.lsp.buf.format({ async = true })
-		end, "Formatting")
+		-- nmap("<leader>lf", function()
+		-- 	vim.lsp.buf.format({ async = true })
+		-- end, "Formatting")
 	end
 })
