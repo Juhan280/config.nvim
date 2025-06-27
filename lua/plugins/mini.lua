@@ -1,7 +1,12 @@
 return { ---@type LazySpec
-	{ "echasnovski/mini.ai", event = "VeryLazy", opts = {} },
 	{ "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },
 	{ "echasnovski/mini.operators", event = "VeryLazy", opts = {} },
+	{
+		"echasnovski/mini.ai",
+		event = "VeryLazy",
+		cond = false,
+		opts = {},
+	},
 	{
 		"echasnovski/mini.operators",
 		event = "VeryLazy",

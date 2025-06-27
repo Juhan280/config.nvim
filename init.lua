@@ -24,16 +24,7 @@ vim.diagnostic.config({
 })
 
 -- Keymaps
-vim.keymap.set("n", "<Esc>", ":noh<CR>", { silent = true })
+vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
--- textobject to select entire buffer
-vim.keymap.set({ "o", "x" }, "gG", function()
-	vim.api.nvim_win_set_cursor(0, { 1, 0 })
-	if not (vim.fn.mode():find("V")) then
-		vim.cmd.normal({ "V", bang = true })
-	end
-	vim.cmd.normal({ "o", bang = true })
-	vim.api.nvim_win_set_cursor(0, { vim.fn.line("$"), 0 })
-end, { desc = "Entire Buffer" })
 
 require("config.autocmds")

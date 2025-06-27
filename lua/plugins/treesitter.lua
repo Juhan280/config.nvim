@@ -60,4 +60,13 @@ return { ---@type LazySpec
 			mapxo("iP", "@parameter.inner", "inside parameter")
 		end,
 	},
+	{
+		"chrisgrieser/nvim-various-textobjs",
+		event = "VeryLazy",
+		---@module "various-textobjs"
+		---@type VariousTextobjs.Config
+		opts = {
+			keymaps = { useDefaults = true },
+		},
+	},
 }
