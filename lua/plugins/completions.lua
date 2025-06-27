@@ -25,7 +25,6 @@ return { ---@type LazySpec
 				},
 			},
 		},
-		signature = { enabled = true },
 
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
