@@ -1,10 +1,11 @@
----@module "snacks"
 return { ---@type LazySpec
 	"folke/snacks.nvim",
 	branch = "main",
 	priority = 1000,
 	lazy = false,
-	opts = { ---@type snacks.Config
+	---@module "snacks"
+	---@type snacks.Config
+	opts = {
 		bigfile = {
 			notify = true, -- show notification when big file detected
 			size = 1024 * 1024, -- 1MiB
