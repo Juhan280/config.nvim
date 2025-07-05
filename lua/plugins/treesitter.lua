@@ -11,7 +11,7 @@ return { ---@type LazySpec
 			local available = nvim_treesitter.get_available()
 			local function try_install_curr_lang()
 				local installed = nvim_treesitter.get_installed()
-				local lang = vim.bo.filetype
+				local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
 				if vim.tbl_contains(available, lang) and not vim.tbl_contains(installed, lang) then
 					nvim_treesitter.install(lang):await(function()
 						vim.notify(string.format("Installed treesitter '%s' parser", lang), vim.log.levels.INFO)
