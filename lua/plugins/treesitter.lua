@@ -69,4 +69,9 @@ return { ---@type LazySpec
 			keymaps = { useDefaults = true },
 		},
 	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		event = "VeryLazy",
+		opts = {},
+	},
 }
