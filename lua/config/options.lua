@@ -37,6 +37,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "checkhealth,man",
 	command = "setlocal nospell",
 })
+vim.api.nvim_create_autocmd("OptionSet", {
+	desc = "Disable spell in terminal buffers",
+	pattern = "buftype",
+	callback = function()
+		if vim.v.option_new == "terminal" then
+			vim.opt_local.spell = false
+		end
+	end,
+})
 
 -- Set rounded border for floating windows
 vim.opt.winborder = "rounded"
