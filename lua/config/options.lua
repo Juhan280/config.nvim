@@ -49,3 +49,8 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 vim.opt.whichwrap:append("<>[]hl")
+
+---@diagnostic disable-next-line: undefined-field
+if vim.opt.shell:get():match("/nu$") ~= nil then
+	vim.opt.shell = "zsh"
+end
