@@ -13,6 +13,18 @@ vim.opt.shiftwidth = 0 -- when set to zero, it uses 'tabstop' value
 vim.opt.softtabstop = -1 -- when it is negative, it follows 'shiftwidth'
 vim.opt.expandtab = false
 
+-- Show different invisible symbols
+vim.opt.list = true
+vim.opt.listchars = {
+	space = "⋅",
+	-- eol = "↲",
+	tab = "▎_",
+	trail = "•",
+	extends = "❯",
+	precedes = "❮",
+	nbsp = "",
+}
+
 -- wraping and scrolling
 vim.opt.wrap = false
 vim.opt.scrolloff = 10
