@@ -144,6 +144,7 @@ return { ---@type LazySpec
 
 				-- Create some toggle mappings
 				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>ts")
+				Snacks.toggle.option("list", { name = "Virtual Chars" }):map("<leader>tv")
 				Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>tw")
 				Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>tL")
 				Snacks.toggle.diagnostics():map("<leader>td")
