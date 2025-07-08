@@ -14,6 +14,7 @@ return { ---@type LazySpec
 			-- servers that are not installed by mason but exists in the PATH
 			local servers = {
 				"clangd",
+				"denols",
 				"gleam",
 				"lua_ls",
 				"nushell",
@@ -52,6 +53,26 @@ return { ---@type LazySpec
 					settings = {
 						formatterMode = "typstyle",
 					},
+				},
+				ts_ls = {
+					-- do not attach ts_ls in a deno project
+					root_dir = function(bufnr, on_dir)
+						local root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
+						local root_dir = vim.fs.root(bufnr, root_markers)
+						if not root_dir then
+							return
+						end
+						local bad_dir = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
+						if bad_dir and bad_dir:match("^" .. root_dir) then
+							return
+						end
+						on_dir(root_dir)
+					end,
+				},
+				denols = {
+					root_markers = { { "deno.json", "deno.jsonc" }, ".git" },
+					-- do not run in single file mode
+					workspace_required = true,
 				},
 			}
 
