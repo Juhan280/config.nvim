@@ -1,5 +1,20 @@
+-- Basic autocommands
+local augroup = vim.api.nvim_create_augroup("UserConfig", {})
+
+-- Create directories when saving files
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = augroup,
+	callback = function()
+		local dir = vim.fn.expand("<afile>:p:h")
+		if vim.fn.isdirectory(dir) == 0 then
+			vim.fn.mkdir(dir, "p")
+		end
+	end,
+})
+
 -- For some reason tabstop is set back to 8 in gitcommit filetype
 vim.api.nvim_create_autocmd("FileType", {
+	group = augroup,
 	desc = "Set tabstop to 2",
 	once = true,
 	pattern = "gitcommit",
@@ -8,8 +23,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
+	group = augroup,
 	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("highlight-on-yank", { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
 	end,
@@ -18,6 +33,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 ---@type table<number, {token:lsp.ProgressToken, msg:string, done:boolean}[]>
 local progress = vim.defaulttable()
 vim.api.nvim_create_autocmd("LspProgress", {
+	group = augroup,
 	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
