@@ -72,6 +72,7 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.whichwrap:append("<>[]hl")
 
 ---@diagnostic disable-next-line: undefined-field
-if vim.opt.shell:get():match("/nu$") ~= nil then
-	vim.opt.shell = "zsh"
+vim.g.shell = vim.opt.shell:get()
+if vim.g.shell:match("/nu$") ~= nil then
+	vim.opt.shell = "bash"
 end

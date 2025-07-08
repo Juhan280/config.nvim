@@ -6,8 +6,20 @@ require("lazy").setup("plugins", {
 	defaults = { lazy = true, version = "*" },
 	dev = { path = "~/local_builds/" },
 	install = { colorscheme = { "tokyonight" } },
-	ui = { border = "rounded" },
 	checker = { enabled = true, notify = false },
+	ui = {
+		border = "rounded",
+		custom_keys = {
+			["<localleader>t"] = {
+				function(plugin)
+					require("lazy.util").float_term(vim.g.shell, {
+						cwd = plugin.dir,
+					})
+				end,
+				desc = "Open terminal in plugin dir",
+			},
+		},
+	},
 })
 
 -- Diagnostic

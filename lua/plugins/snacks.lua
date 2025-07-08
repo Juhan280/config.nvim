@@ -33,6 +33,9 @@ return { ---@type LazySpec
 				wo = { wrap = true }, -- Wrap notifications
 			},
 		},
+		terminal = {
+			shell = vim.g.shell,
+		},
 	},
 	keys = {
 		{
