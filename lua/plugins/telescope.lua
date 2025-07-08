@@ -11,6 +11,7 @@ local keybinds = {
 
 return { ---@type LazySpec
 	"nvim-telescope/telescope.nvim",
+	version = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"BurntSushi/ripgrep",
