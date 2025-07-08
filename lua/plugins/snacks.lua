@@ -64,13 +64,6 @@ return { ---@type LazySpec
 			desc = "Dismiss All Notifications",
 		},
 		{
-			"<leader>bd",
-			function()
-				Snacks.bufdelete()
-			end,
-			desc = "Delete Buffer",
-		},
-		{
 			"<leader>cR",
 			function()
 				Snacks.rename.rename_file()
