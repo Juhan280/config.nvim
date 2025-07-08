@@ -39,4 +39,15 @@ vim.diagnostic.config({
 vim.keymap.set("n", "<Esc>", "<cmd>noh<CR>")
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- Move lines up/down
+vim.keymap.set("n", "<A-j>", function()
+	vim.cmd(":m .+" .. vim.v.count1 .. "<CR>==")
+end, { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", function()
+	vim.cmd(":m .-1-" .. vim.v.count1 .. "<CR>==")
+end, { desc = "Move line up" })
+-- TODO: make it work with `v:count1`
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
 require("config.autocmds")
