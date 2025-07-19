@@ -15,9 +15,9 @@ return { ---@type LazySpec
 				if vim.tbl_contains(available, lang) and not vim.tbl_contains(installed, lang) then
 					nvim_treesitter.install(lang):await(function()
 						vim.notify(string.format("Installed treesitter '%s' parser", lang), vim.log.levels.INFO)
-						vim.treesitter.start(0, lang)
 					end)
 				end
+				pcall(vim.treesitter.start, 0, lang)
 			end
 
 			try_install_curr_lang()
