@@ -11,18 +11,6 @@ return { ---@type LazySpec
 		config = function()
 			require("config.lsp-attach")
 
-			-- servers that are not installed by mason but exists in the PATH
-			local servers = {
-				"clangd",
-				"denols",
-				"gleam",
-				"lua_ls",
-				"nushell",
-				"rust_analyzer",
-				"taplo",
-				"tinymist",
-			}
-
 			---@type { [string]: vim.lsp.Config }
 			local configs = {
 				jsonls = {
@@ -79,7 +67,17 @@ return { ---@type LazySpec
 			for name, config in pairs(configs) do
 				vim.lsp.config(name, config)
 			end
-			vim.lsp.enable(servers)
+
+			vim.lsp.enable({
+				"clangd",
+				"denols",
+				"gleam",
+				"lua_ls",
+				"nushell",
+				-- "rust_analyzer", -- TODO: enable it later
+				"taplo",
+				"tinymist",
+			})
 		end,
 	},
 	{
