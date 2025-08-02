@@ -5,7 +5,11 @@ return {
 	opts = {
 		modes = {
 			search = {
-				enable = true,
+				enabled = true,
+			},
+			char = {
+				autohide = true,
+				jump_labels = true,
 			},
 		},
 	},
