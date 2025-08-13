@@ -64,6 +64,7 @@ vim.opt.winborder = "rounded"
 
 -- Folds
 vim.opt.foldlevelstart = 5
+vim.opt.foldlevel = 5
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
