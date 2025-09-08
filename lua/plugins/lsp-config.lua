@@ -76,7 +76,7 @@ return { ---@type LazySpec
 				"nushell",
 				-- "rust_analyzer", -- TODO: enable it later
 				"taplo",
-				"tinymist",
+				-- "tinymist",
 			})
 
 			-- Setup `termux-language-server`
