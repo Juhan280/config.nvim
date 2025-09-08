@@ -11,6 +11,7 @@ local keybinds = {
 
 return { ---@type LazySpec
 	"nvim-telescope/telescope.nvim",
+	-- TODO: remove next line once version >0.1.8 is released
 	version = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
