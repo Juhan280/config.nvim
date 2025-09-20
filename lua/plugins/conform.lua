@@ -27,7 +27,10 @@ return { ---@type LazySpec
 	---@type conform.setupOpts
 	opts = {
 		default_format_opts = { lsp_format = "fallback" },
-		formatters_by_ft = { lua = { "stylua" } },
+		formatters_by_ft = {
+			lua = { "stylua" },
+			rust = { "rustfmt" },
+		},
 		format_on_save = function(bufnr)
 			if vim.g.enable_format_on_save ~= false and vim.b[bufnr].enable_format_on_save ~= false then
 				return { timeout_ms = 500 }
