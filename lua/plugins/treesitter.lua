@@ -72,6 +72,7 @@ return { ---@type LazySpec
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		event = "VeryLazy",
+		version = false, -- TODO: remove this on next release (>1.0.0)
 		opts = {},
 	},
 }
