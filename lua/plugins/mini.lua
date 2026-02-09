@@ -1,14 +1,14 @@
 return { ---@type LazySpec
-	{ "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },
-	{ "echasnovski/mini.operators", event = "VeryLazy", opts = {} },
+	{ "nvim-mini/mini.pairs",     event = "VeryLazy", opts = {} },
+	{ "nvim-mini/mini.operators", event = "VeryLazy", opts = {} },
 	{
-		"echasnovski/mini.ai",
+		"nvim-mini/mini.ai",
 		event = "VeryLazy",
 		cond = false,
 		opts = {},
 	},
 	{
-		"echasnovski/mini.operators",
+		"nvim-mini/mini.operators",
 		event = "VeryLazy",
 		opts = {
 			exchange = {
@@ -20,7 +20,7 @@ return { ---@type LazySpec
 		},
 	},
 	{
-		"echasnovski/mini.surround",
+		"nvim-mini/mini.surround",
 		event = "VeryLazy",
 		opts = {
 			mappings = {
@@ -36,7 +36,7 @@ return { ---@type LazySpec
 		},
 	},
 	{
-		"echasnovski/mini.icons",
+		"nvim-mini/mini.icons",
 		specs = {
 			{ "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
 		},
