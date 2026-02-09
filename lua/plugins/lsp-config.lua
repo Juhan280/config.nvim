@@ -71,10 +71,9 @@ return { ---@type LazySpec
 			vim.lsp.enable({
 				"clangd",
 				"denols",
-				"gleam",
 				"lua_ls",
 				"nushell",
-				-- "rust_analyzer", -- TODO: enable it later
+				"rust_analyzer",
 				"taplo",
 				-- "tinymist",
 			})
