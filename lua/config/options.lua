@@ -9,7 +9,7 @@ vim.opt.cursorline = true
 
 -- Tab setting
 vim.opt.tabstop = 2
-vim.opt.shiftwidth = 0 -- when set to zero, it uses 'tabstop' value
+vim.opt.shiftwidth = 0   -- when set to zero, it uses 'tabstop' value
 vim.opt.softtabstop = -1 -- when it is negative, it follows 'shiftwidth'
 vim.opt.expandtab = false
 
@@ -34,6 +34,9 @@ vim.opt.smoothscroll = true
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Mouse option
+vim.opt.mouse = "nv" -- only enable mouse for normal and visual mode
 
 -- Case insensitive search result and tab completion in command mode
 vim.opt.ignorecase = true
