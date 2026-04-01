@@ -73,10 +73,13 @@ return { ---@type LazySpec
 				"denols",
 				"lua_ls",
 				"nushell",
-				"rust_analyzer",
 				"taplo",
 				-- "tinymist",
 			})
+
+			if not vim.os:isAndroid() then
+				vim.lsp.enable("rust-analyzer")
+			end
 
 			-- Setup `termux-language-server`
 			vim.api.nvim_create_autocmd({ "BufEnter" }, {
