@@ -78,7 +78,7 @@ return { ---@type LazySpec
 			})
 
 			if not vim.os:isAndroid() then
-				vim.lsp.enable("rust-analyzer")
+				vim.lsp.enable("rust_analyzer")
 			end
 
 			-- Setup `termux-language-server`
