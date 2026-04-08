@@ -1,3 +1,5 @@
+local lsp_config = vim.lsp.config
+
 return { ---@type LazySpec
 	{
 		"neovim/nvim-lspconfig",
@@ -11,62 +13,71 @@ return { ---@type LazySpec
 		config = function()
 			require("config.lsp-attach")
 
-			---@type { [string]: vim.lsp.Config }
-			local configs = {
-				jsonls = {
-					settings = {
-						json = {
-							schemas = require("schemastore").json.schemas(),
-							validate = { enable = true },
-						},
+			lsp_config("jsonls", {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
 					},
 				},
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							diagnostics = {
-								experimental = {
-									enable = true,
-								},
+			})
+
+			local handle = io.popen("cargo ndk-env --json")
+			local cargo_ndk_env = {}
+			if handle then
+				local output = handle:read("*a")
+				handle:close()
+				cargo_ndk_env = vim.json.decode(output)
+			else
+				vim.notify("Failed to run 'cargo ndk-env'. Is cargo-ndk installed and in PATH?", vim.log.levels.ERROR)
+			end
+
+			lsp_config("rust_analyzer", {
+				settings = {
+					["rust-analyzer"] = {
+						diagnostics = {
+							experimental = {
+								enable = true,
 							},
 						},
+						cargoEnv = cargo_ndk_env
 					},
 				},
-				taplo = {
-					root_dir = function(bufnr, on_dir)
-						on_dir(vim.fs.root(bufnr, { ".git" }) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
-					end,
-				},
-				tinymist = {
-					settings = {
-						formatterMode = "typstyle",
-					},
-				},
-				ts_ls = {
-					-- do not attach ts_ls in a deno project
-					root_dir = function(bufnr, on_dir)
-						local root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
-						local root_dir = vim.fs.root(bufnr, root_markers)
-						if not root_dir then
-							return
-						end
-						local bad_dir = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
-						if bad_dir and bad_dir:match("^" .. root_dir) then
-							return
-						end
-						on_dir(root_dir)
-					end,
-				},
-				denols = {
-					root_markers = { { "deno.json", "deno.jsonc" }, ".git" },
-					-- do not run in single file mode
-					workspace_required = true,
-				},
-			}
+			})
 
-			for name, config in pairs(configs) do
-				vim.lsp.config(name, config)
-			end
+			lsp_config("taplo", {
+				root_dir = function(bufnr, on_dir)
+					on_dir(vim.fs.root(bufnr, { ".git" }) or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
+				end,
+			})
+
+			lsp_config("tinymist", {
+				settings = {
+					formatterMode = "typstyle",
+				},
+			})
+
+			lsp_config("ts_ls", {
+				-- do not attach ts_ls in a deno project
+				root_dir = function(bufnr, on_dir)
+					local root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" }
+					local root_dir = vim.fs.root(bufnr, root_markers)
+					if not root_dir then
+						return
+					end
+					local bad_dir = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
+					if bad_dir and bad_dir:match("^" .. root_dir) then
+						return
+					end
+					on_dir(root_dir)
+				end,
+			})
+
+			lsp_config("denols", {
+				root_markers = { { "deno.json", "deno.jsonc" }, ".git" },
+				-- do not run in single file mode
+				workspace_required = true,
+			})
 
 			vim.lsp.enable({
 				"clangd",
